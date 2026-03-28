@@ -3,50 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO -->
   <title>Webnova — Уеб дизайн и SEO оптимизация Пловдив</title>
-  <meta name="description" content="Webnova — професионални уеб сайтове, SEO оптимизация и дигитален маркетинг в Пловдив. Модерен дизайн, бързо изпълнение, достъпни цени. Безплатна консултация." />
+  <meta name="description" content="Webnova — професионални уеб сайтове, SEO оптимизация и дигитален маркетинг в Пловдив. Модерен дизайн, бързо изпълнение, достъпни цени." />
   <meta name="keywords" content="уеб дизайн Пловдив, SEO оптимизация Пловдив, изработка на сайт, уеб агенция Пловдив, Webnova" />
-  <meta name="author" content="Иво Карабашев — Webnova" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://webnova.netlify.app/" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://webnova.netlify.app/" />
+  <link rel="canonical" href="https://webnovapl.netlify.app/" />
   <meta property="og:title" content="Webnova — Уеб дизайн и SEO Пловдив" />
-  <meta property="og:description" content="Модерни уеб сайтове и SEO оптимизация за малки бизнеси в Пловдив. Безплатна консултация." />
-  <meta property="og:locale" content="bg_BG" />
+  <meta property="og:description" content="Модерни уеб сайтове и SEO оптимизация за малки бизнеси в Пловдив." />
+  <meta property="og:type" content="website" />
 
-  <!-- Schema.org -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Webnova",
-    "description": "Уеб дизайн, SEO оптимизация и дигитален маркетинг в Пловдив.",
-    "url": "https://webnova.netlify.app/",
-    "telephone": "+359895615903",
-    "email": "ivokarabashev@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Пловдив",
-      "addressCountry": "BG"
-    },
-    "areaServed": "България"
-  }
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Webnova","url":"https://webnovapl.netlify.app/","telephone":"+359895615903","email":"ivokarabashev@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Пловдив","addressCountry":"BG"},"areaServed":"България"}
   </script>
 
   <!-- Google Translate -->
   <script>
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'bg',
-        includedLanguages: 'bg,en,de,ru,tr',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-      }, 'google_translate_element');
+      new google.translate.TranslateElement({ pageLanguage:'bg', includedLanguages:'bg,en,de,ru,tr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay:false }, 'gte');
     }
   </script>
   <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
@@ -54,322 +27,426 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
     :root {
-      --primary: #000000;
-      --accent:  #000000;
-      --accent2: #333333;
-      --light:   #f5f5f5;
-      --text:    #111111;
-      --muted:   #777777;
-      --white:   #ffffff;
-      --border:  #e8e8e8;
-      --radius:  4px;
-      --shadow:  0 4px 24px rgba(0,0,0,0.08);
+      --bg:     #080808;
+      --bg2:    #0f0f0f;
+      --bg3:    #161616;
+      --neon:   #00ff88;
+      --blue:   #00d4ff;
+      --purple: #a855f7;
+      --text:   #f0f0f0;
+      --muted:  #888;
+      --border: rgba(255,255,255,0.08);
+      --glow:   0 0 30px rgba(0,255,136,0.3);
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: .4;
+    }
 
     /* ── TRANSLATE BAR ── */
-    #translate-bar {
-      background: #111; padding: .4rem 5%;
+    #tbar {
+      background: #000; padding: .4rem 5%;
       display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border); position: relative; z-index: 200;
     }
-    .translate-left { font-size: .75rem; color: rgba(255,255,255,.4); }
-    .translate-left strong { color: rgba(255,255,255,.7); }
-    #google_translate_element { display: inline-block; }
+    #tbar span { font-size: .72rem; color: var(--muted); }
+    #tbar strong { color: var(--neon); }
+    #gte { display: inline-block; }
     .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
     .goog-te-gadget select {
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
-      color: #fff; padding: .2rem .5rem; border-radius: 3px;
-      font-size: .75rem; cursor: pointer; outline: none;
+      background: rgba(0,255,136,.08); border: 1px solid rgba(0,255,136,.2);
+      color: var(--neon); padding: .2rem .5rem; border-radius: 4px;
+      font-size: .72rem; cursor: pointer; outline: none;
     }
 
     /* ── NAV ── */
     nav {
       position: sticky; top: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 5%;
-      background: rgba(255,255,255,0.97);
-      backdrop-filter: blur(16px);
+      padding: 1rem 5%;
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-    .nav-logo-mark {
-      width: 34px; height: 34px;
-      background: #000;
-      border-radius: var(--radius);
+    .logo { display: flex; align-items: center; gap: .65rem; text-decoration: none; }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--neon), var(--blue));
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 900; font-size: .95rem; color: white; letter-spacing: -1px;
+      font-weight: 900; font-size: .95rem; color: #000;
     }
-    .nav-logo-text { font-size: 1.1rem; font-weight: 800; color: #000; letter-spacing: -.5px; }
-    .nav-logo-text span { color: #000; }
+    .logo-text { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -.5px; }
+    .logo-text span { color: var(--neon); }
 
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { text-decoration: none; color: var(--muted); font-size: .875rem; font-weight: 500; transition: color .2s; }
-    .nav-links a:hover { color: #000; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-size: .85rem; font-weight: 500;
+      transition: color .2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1px;
+      background: var(--neon); transform: scaleX(0); transition: transform .2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { transform: scaleX(1); }
 
     .nav-right { display: flex; align-items: center; gap: 1rem; }
+    .nav-phone { font-size: .82rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-phone:hover { color: var(--neon); }
 
+    /* ── BUTTONS ── */
     .btn {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .7rem 1.5rem; border-radius: var(--radius);
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .75rem 1.6rem; border-radius: 8px;
       font-size: .875rem; font-weight: 600; font-family: inherit;
-      text-decoration: none; cursor: pointer; border: none; transition: all .2s;
+      text-decoration: none; cursor: pointer; border: none; transition: all .25s;
     }
-    .btn-primary { background: #000; color: white; }
-    .btn-primary:hover { background: #222; transform: translateY(-1px); }
-    .btn-outline { background: transparent; color: #000; border: 1.5px solid #000; }
-    .btn-outline:hover { background: #000; color: white; }
-    .btn-dark { background: #000; color: white; }
-    .btn-dark:hover { background: #222; }
+    .btn-neon {
+      background: var(--neon); color: #000;
+      box-shadow: 0 0 20px rgba(0,255,136,.3);
+    }
+    .btn-neon:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(0,255,136,.5); }
+    .btn-ghost {
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+    }
+    .btn-ghost:hover { border-color: var(--neon); color: var(--neon); }
 
     /* ── HERO ── */
     #hero {
-      padding: 7rem 5% 6rem;
-      background: var(--white);
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 6rem 5% 4rem;
       position: relative; overflow: hidden;
-      border-bottom: 1px solid var(--border);
     }
-    .hero-bg { display: none; }
+
+    /* Animated blobs */
+    .blob {
+      position: absolute; border-radius: 50%; filter: blur(80px);
+      animation: blobMove 8s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .blob-1 { width: 500px; height: 500px; background: rgba(0,255,136,.07); top: -100px; right: -100px; animation-delay: 0s; }
+    .blob-2 { width: 400px; height: 400px; background: rgba(0,212,255,.06); bottom: -50px; left: -100px; animation-delay: -3s; }
+    .blob-3 { width: 300px; height: 300px; background: rgba(168,85,247,.05); top: 50%; left: 40%; animation-delay: -5s; }
+
+    @keyframes blobMove {
+      0%   { transform: translate(0,0) scale(1); }
+      100% { transform: translate(40px,30px) scale(1.1); }
+    }
+
+    /* Grid lines */
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
 
     .hero-inner {
-      display: grid; grid-template-columns: 1.1fr 0.9fr;
-      gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto;
+      width: 100%; position: relative; z-index: 1;
     }
 
-    .hero-tag {
+    .hero-badge {
       display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--light); color: var(--muted);
-      border: 1px solid var(--border);
-      padding: .3rem .9rem; border-radius: 50px;
-      font-size: .72rem; font-weight: 600; letter-spacing: .5px;
+      background: rgba(0,255,136,.08); color: var(--neon);
+      border: 1px solid rgba(0,255,136,.2);
+      padding: .3rem 1rem; border-radius: 50px;
+      font-size: .72rem; font-weight: 700; letter-spacing: 1px;
       text-transform: uppercase; margin-bottom: 1.5rem;
     }
-    .hero-tag::before { content: '●'; font-size: .5rem; color: #000; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 900; color: #000;
-      line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.25rem;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.05; letter-spacing: -2px; margin-bottom: 1rem;
     }
-    h1 .gradient { color: #000; background: none; -webkit-text-fill-color: #000; }
+    .h1-line2 { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.3); }
 
-    .hero-sub { font-size: 1rem; color: var(--muted); max-width: 440px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .typing-wrap { display: inline-block; }
+    .typing-text { color: var(--neon); }
+    .cursor { display: inline-block; width: 3px; height: .9em; background: var(--neon); margin-left: 2px; vertical-align: middle; animation: blink .8s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .hero-sub { font-size: .95rem; color: var(--muted); max-width: 440px; margin-bottom: 2.5rem; line-height: 1.8; }
 
     .hero-btns { display: flex; gap: .75rem; flex-wrap: wrap; margin-bottom: 3rem; }
 
-    .hero-social-proof {
+    .hero-proof {
       display: flex; align-items: center; gap: 1rem;
       padding-top: 2rem; border-top: 1px solid var(--border);
     }
-    .proof-avatars { display: flex; }
-    .proof-avatar {
+    .proof-avs { display: flex; }
+    .proof-av {
       width: 30px; height: 30px; border-radius: 50%;
-      border: 2px solid white; background: #000;
+      border: 2px solid var(--bg); background: linear-gradient(135deg, var(--neon), var(--blue));
       display: flex; align-items: center; justify-content: center;
-      font-size: .7rem; font-weight: 700; color: white;
-      margin-left: -6px;
+      font-size: .68rem; font-weight: 700; color: #000; margin-left: -6px;
     }
-    .proof-avatar:first-child { margin-left: 0; }
-    .proof-text { font-size: .82rem; color: var(--muted); line-height: 1.4; }
-    .proof-text strong { color: #000; }
+    .proof-av:first-child { margin-left: 0; }
+    .proof-txt { font-size: .8rem; color: var(--muted); line-height: 1.4; }
+    .proof-txt strong { color: #fff; }
 
     /* HERO VISUAL */
-    .hero-visual { position: relative; }
+    .hero-visual { position: relative; perspective: 1000px; }
+    .hero-card-3d {
+      transform-style: preserve-3d;
+      transition: transform .1s;
+    }
     .hero-mockup {
-      background: #111; border-radius: 12px;
-      padding: 1rem; box-shadow: 0 24px 60px rgba(0,0,0,.15);
+      background: var(--bg3); border-radius: 16px;
+      padding: 1rem; border: 1px solid var(--border);
+      box-shadow: 0 32px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(0,255,136,.1);
     }
     .mockup-bar { display: flex; align-items: center; gap: .5rem; padding: .5rem .75rem; margin-bottom: .75rem; }
-    .mockup-dot { width: 9px; height: 9px; border-radius: 50%; }
-    .mockup-url {
-      flex: 1; background: rgba(255,255,255,.07); border-radius: 4px;
-      padding: .3rem .75rem; font-size: .7rem; color: rgba(255,255,255,.35); margin: 0 .5rem;
+    .mdot { width: 9px; height: 9px; border-radius: 50%; }
+    .mock-url {
+      flex: 1; background: rgba(255,255,255,.05); border-radius: 4px;
+      padding: .3rem .75rem; font-size: .7rem; color: rgba(255,255,255,.25); margin: 0 .5rem;
     }
-    .mockup-screen { background: white; border-radius: 8px; overflow: hidden; padding: 1.25rem; }
-    .mockup-hero-bar { height: 8px; background: #000; border-radius: 4px; margin-bottom: 1rem; width: 55%; }
-    .mockup-line { height: 7px; background: var(--light); border-radius: 3px; margin-bottom: .5rem; }
-    .mockup-line.short { width: 70%; }
-    .mockup-line.shorter { width: 40%; }
-    .mockup-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; margin-top: 1rem; }
-    .mockup-card { background: var(--light); border-radius: 6px; padding: .75rem; border: 1px solid var(--border); }
-    .mockup-card-icon { width: 20px; height: 20px; background: #000; border-radius: 4px; margin-bottom: .4rem; }
-    .mockup-card-line { height: 5px; background: #ddd; border-radius: 3px; margin-bottom: .3rem; }
-    .mockup-card-line.short { width: 65%; }
+    .mock-screen { background: #fff; border-radius: 10px; overflow: hidden; padding: 1.25rem; }
+    .mock-bar { height: 8px; background: linear-gradient(90deg,#00ff88,#00d4ff); border-radius: 4px; margin-bottom: 1rem; width: 55%; }
+    .mock-line { height: 7px; background: #f0f0f0; border-radius: 3px; margin-bottom: .5rem; }
+    .mock-line.s { width: 70%; } .mock-line.xs { width: 40%; }
+    .mock-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; margin-top: 1rem; }
+    .mock-card { background: #f8f8f8; border-radius: 6px; padding: .6rem; }
+    .mock-ci { width: 18px; height: 18px; background: linear-gradient(135deg,#00ff88,#00d4ff); border-radius: 4px; margin-bottom: .35rem; }
+    .mock-cl { height: 5px; background: #e8e8e8; border-radius: 3px; margin-bottom: .25rem; }
+    .mock-cl.s { width: 65%; }
 
-    .hero-float-1, .hero-float-2 {
-      position: absolute; background: white; border-radius: 8px;
-      padding: .75rem 1rem; box-shadow: 0 4px 20px rgba(0,0,0,.1);
+    .hf1,.hf2 {
+      position: absolute; background: var(--bg3); border-radius: 10px;
+      padding: .65rem .9rem; border: 1px solid var(--border);
       display: flex; align-items: center; gap: .6rem;
-      font-size: .78rem; font-weight: 600; color: #000;
-      border: 1px solid var(--border);
+      font-size: .75rem; font-weight: 600; color: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,.4);
+      animation: floatY 3s ease-in-out infinite alternate;
     }
-    .hero-float-1 { top: -1rem; left: -1.5rem; }
-    .hero-float-2 { bottom: 1rem; right: -1.5rem; }
-    .float-icon { font-size: 1.1rem; }
-    .float-sub { font-size: .65rem; color: var(--muted); font-weight: 400; }
+    .hf1 { top: -1rem; left: -1.5rem; animation-delay: 0s; }
+    .hf2 { bottom: 1rem; right: -1.5rem; animation-delay: -1.5s; }
+    @keyframes floatY { 0%{transform:translateY(0)} 100%{transform:translateY(-8px)} }
+    .hf-icon { font-size: 1rem; }
+    .hf-sub { font-size: .62rem; color: var(--muted); font-weight: 400; }
+    .hf-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); }
 
     /* ── STATS ── */
-    #stats { padding: 3rem 5%; background: #000; }
-    .stats-inner {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: center;
+    #stats {
+      padding: 4rem 5%;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
     }
-    .stat-num { font-size: 2.4rem; font-weight: 900; color: white; line-height: 1; margin-bottom: .3rem; letter-spacing: -1px; }
-    .stat-num span { color: white; background: none; -webkit-text-fill-color: white; }
-    .stat-label { font-size: .78rem; color: rgba(255,255,255,.4); letter-spacing: .5px; }
+    #stats::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 600px; height: 200px;
+      background: radial-gradient(ellipse, rgba(0,255,136,.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 2rem; max-width: 900px; margin: 0 auto; text-align: center; position: relative;
+    }
+    .stat-wrap { }
+    .stat-num {
+      font-size: 3rem; font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--neon), var(--blue));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: .4rem; letter-spacing: -2px;
+    }
+    .stat-label { font-size: .78rem; color: var(--muted); letter-spacing: .5px; }
+
+    /* ── SECTION COMMONS ── */
+    section { position: relative; z-index: 1; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .stag {
+      display: inline-block; font-size: .68rem; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase; color: var(--neon);
+      margin-bottom: .6rem;
+    }
+    h2 {
+      font-size: clamp(1.7rem, 3vw, 2.8rem);
+      font-weight: 900; color: #fff; line-height: 1.1;
+      margin-bottom: .75rem; letter-spacing: -1px;
+    }
+    .ssub { color: var(--muted); font-size: .9rem; max-width: 480px; margin: 0 auto; }
 
     /* ── SERVICES ── */
-    #services { padding: 7rem 5%; background: var(--white); border-top: 1px solid var(--border); }
+    #services { padding: 7rem 5%; background: var(--bg); }
 
-    .section-header { text-align: center; margin-bottom: 4rem; }
-    .section-tag { font-size: .7rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: .6rem; }
-    h2 { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 900; color: #000; line-height: 1.1; margin-bottom: .75rem; letter-spacing: -1px; }
-    .section-sub { color: var(--muted); font-size: .95rem; max-width: 500px; margin: 0 auto; }
-
-    .services-list {
-      display: grid; grid-template-columns: repeat(3, 1fr);
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
       gap: 1px; max-width: 1100px; margin: 0 auto;
-      border: 1px solid var(--border);
+      border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
     }
 
-    .service-card {
-      background: white; padding: 2.25rem 2rem;
-      border: none; border-right: 1px solid var(--border);
+    .svc-card {
+      padding: 2.5rem 2rem; background: var(--bg2);
+      border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      transition: background .2s; cursor: default;
+      transition: background .3s; position: relative; overflow: hidden;
     }
-    .service-card:hover { background: #fafafa; }
-    .service-icon {
-      width: 40px; height: 40px;
-      background: var(--light);
-      border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; margin-bottom: 1rem; border: 1px solid var(--border);
+    .svc-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,255,136,.04), rgba(0,212,255,.04));
+      opacity: 0; transition: opacity .3s;
     }
-    .service-title { font-size: .95rem; font-weight: 700; color: #000; margin-bottom: .4rem; }
-    .service-desc  { font-size: .82rem; color: var(--muted); line-height: 1.65; }
+    .svc-card:hover { background: var(--bg3); }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-card:hover .svc-icon { box-shadow: 0 0 20px rgba(0,255,136,.3); }
+
+    .svc-icon {
+      width: 48px; height: 48px;
+      background: rgba(0,255,136,.08); border: 1px solid rgba(0,255,136,.15);
+      border-radius: 12px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.25rem; transition: box-shadow .3s;
+    }
+    .svc-num {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      font-size: 3rem; font-weight: 900; color: rgba(255,255,255,.03);
+      line-height: 1; letter-spacing: -2px;
+    }
+    .svc-title { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .5rem; }
+    .svc-desc  { font-size: .82rem; color: var(--muted); line-height: 1.65; }
 
     /* ── PRICING ── */
-    #pricing { padding: 7rem 5%; background: var(--light); border-top: 1px solid var(--border); }
+    #pricing { padding: 7rem 5%; background: var(--bg2); border-top: 1px solid var(--border); }
 
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
-    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
 
     .pricing-card {
-      border: 1px solid var(--border); border-radius: 8px;
-      padding: 2rem; transition: all .2s; position: relative;
-      background: white;
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 2rem; transition: all .3s; position: relative;
+      background: var(--bg3);
     }
-    .pricing-card:hover { border-color: #000; box-shadow: 0 8px 32px rgba(0,0,0,.08); }
-    .pricing-card.popular { border: 2px solid #000; background: white; }
-    .popular-badge {
+    .pricing-card:hover { border-color: rgba(0,255,136,.3); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+    .pricing-card.popular {
+      border-color: var(--neon);
+      background: linear-gradient(160deg, rgba(0,255,136,.06) 0%, var(--bg3) 60%);
+      box-shadow: 0 0 40px rgba(0,255,136,.1);
+    }
+    .pop-badge {
       position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: #000; color: white; font-size: .7rem; font-weight: 700;
-      padding: .25rem 1rem; border-radius: 50px; letter-spacing: .5px; white-space: nowrap;
+      background: var(--neon); color: #000; font-size: .68rem; font-weight: 800;
+      padding: .25rem 1rem; border-radius: 50px; white-space: nowrap; letter-spacing: .5px;
     }
 
-    .pricing-name  { font-size: .7rem; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: .6rem; }
-    .pricing-price { font-size: 2.8rem; font-weight: 900; color: #000; line-height: 1; margin-bottom: .25rem; letter-spacing: -1.5px; }
-    .pricing-price span { font-size: .95rem; font-weight: 500; color: var(--muted); }
-    .pricing-desc  { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.5; }
-
-    .pricing-divider { height: 1px; background: var(--border); margin: 1.25rem 0; }
-
-    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-bottom: 1.75rem; }
-    .pricing-features li { display: flex; align-items: flex-start; gap: .6rem; font-size: .84rem; color: var(--text); line-height: 1.4; }
-    .pricing-features li::before {
-      content: '✓'; flex-shrink: 0; color: #000; font-weight: 700; font-size: .8rem; margin-top: .1rem;
-    }
-    .pricing-features li.muted { color: #bbb; }
-    .pricing-features li.muted::before { color: #ccc; }
-
-    .pricing-cta { width: 100%; justify-content: center; padding: .85rem; }
+    .p-name  { font-size: .68rem; font-weight: 700; color: var(--neon); text-transform: uppercase; letter-spacing: 2px; margin-bottom: .6rem; }
+    .p-price { font-size: 3rem; font-weight: 900; color: #fff; line-height: 1; margin-bottom: .2rem; letter-spacing: -2px; }
+    .p-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .p-desc  { font-size: .8rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .p-div   { height: 1px; background: var(--border); margin: 1.25rem 0; }
+    .p-feats { list-style: none; display: flex; flex-direction: column; gap: .6rem; margin-bottom: 1.75rem; }
+    .p-feats li { display: flex; align-items: flex-start; gap: .6rem; font-size: .83rem; color: var(--text); line-height: 1.4; }
+    .p-feats li::before { content: '✓'; color: var(--neon); font-weight: 700; flex-shrink: 0; }
+    .p-feats li.off { color: rgba(255,255,255,.2); }
+    .p-feats li.off::before { color: rgba(255,255,255,.15); content: '–'; }
+    .p-cta { width: 100%; justify-content: center; padding: .85rem; border-radius: 8px; }
 
     /* ── PORTFOLIO ── */
-    #portfolio { padding: 7rem 5%; background: white; border-top: 1px solid var(--border); }
+    #portfolio { padding: 7rem 5%; background: var(--bg); border-top: 1px solid var(--border); }
 
-    .portfolio-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
-    }
+    .port-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
 
-    .portfolio-card {
-      background: var(--light); border-radius: 8px; overflow: hidden;
-      border: 1px solid var(--border); transition: all .25s;
+    .port-card {
+      background: var(--bg2); border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--border); transition: all .35s;
     }
-    .portfolio-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-4px); border-color: #ccc; }
+    .port-card:hover { border-color: rgba(0,255,136,.25); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(0,255,136,.1); }
 
-    .portfolio-preview {
-      height: 200px; display: flex; align-items: center; justify-content: center;
-      font-size: 4rem; position: relative; overflow: hidden;
+    .port-preview {
+      height: 210px; display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; position: relative; overflow: hidden;
     }
-    .portfolio-preview-overlay {
-      position: absolute; inset: 0;
-      background: rgba(0,0,0,.65);
+    .port-overlay {
+      position: absolute; inset: 0; background: rgba(0,0,0,.75);
+      backdrop-filter: blur(4px);
       display: flex; align-items: center; justify-content: center; gap: 1rem;
-      opacity: 0; transition: opacity .25s;
+      opacity: 0; transition: opacity .3s;
     }
-    .portfolio-card:hover .portfolio-preview-overlay { opacity: 1; }
-    .preview-btn {
-      background: white; color: #000; border: none;
-      padding: .5rem 1.1rem; border-radius: 4px; font-size: .8rem;
+    .port-card:hover .port-overlay { opacity: 1; }
+    .port-btn {
+      background: var(--neon); color: #000; border: none;
+      padding: .5rem 1.1rem; border-radius: 6px; font-size: .78rem;
       font-weight: 700; cursor: pointer; text-decoration: none; transition: transform .15s;
     }
-    .preview-btn:hover { transform: scale(1.04); }
+    .port-btn:hover { transform: scale(1.05); }
+    .port-btn.ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); }
 
-    .portfolio-body { padding: 1.5rem; background: white; border-top: 1px solid var(--border); }
-    .portfolio-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .65rem; }
-    .portfolio-tag {
-      font-size: .68rem; font-weight: 600; padding: .18rem .6rem; border-radius: 50px;
-      background: var(--light); color: var(--muted); border: 1px solid var(--border);
+    .port-body { padding: 1.5rem; }
+    .port-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .7rem; }
+    .port-tag {
+      font-size: .67rem; font-weight: 600; padding: .18rem .6rem; border-radius: 50px;
+      background: rgba(0,255,136,.08); color: var(--neon); border: 1px solid rgba(0,255,136,.15);
     }
-    .portfolio-title { font-size: .95rem; font-weight: 700; color: #000; margin-bottom: .35rem; }
-    .portfolio-desc  { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .port-title { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+    .port-desc  { font-size: .8rem; color: var(--muted); line-height: 1.6; }
 
-    .portfolio-add {
-      border: 1.5px dashed var(--border); background: transparent;
+    .port-add {
+      border: 1.5px dashed rgba(255,255,255,.1); background: transparent;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: .75rem; min-height: 300px; cursor: pointer; border-radius: 8px;
-      transition: all .2s; color: var(--muted);
+      gap: .75rem; min-height: 300px; cursor: pointer; border-radius: 16px;
+      transition: all .3s; color: var(--muted);
     }
-    .portfolio-add:hover { border-color: #000; color: #000; background: #fafafa; }
-    .portfolio-add-icon { font-size: 2rem; }
-    .portfolio-add-text { font-size: .875rem; font-weight: 600; }
-    .portfolio-add-sub  { font-size: .76rem; }
+    .port-add:hover { border-color: var(--neon); color: var(--neon); background: rgba(0,255,136,.03); }
+    .port-add-icon { font-size: 2.5rem; }
+    .port-add-text { font-size: .875rem; font-weight: 600; }
+    .port-add-sub  { font-size: .76rem; }
 
     /* ── PROCESS ── */
-    #process { padding: 7rem 5%; background: var(--light); border-top: 1px solid var(--border); }
+    #process { padding: 7rem 5%; background: var(--bg2); border-top: 1px solid var(--border); }
 
-    .process-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; max-width: 1000px; margin: 0 auto;
-      border: 1px solid var(--border);
+    .proc-steps {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto; position: relative;
     }
-    .process-steps::before { display: none; }
+    .proc-steps::before {
+      content: '';
+      position: absolute; top: 24px; left: 12%; right: 12%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--neon), var(--blue), transparent);
+      opacity: .3;
+    }
 
-    .process-step {
-      text-align: left; padding: 2rem;
-      border-right: 1px solid var(--border);
-      background: white;
+    .proc-step { text-align: center; padding: 1.5rem 1rem; }
+    .proc-circle {
+      width: 48px; height: 48px; margin: 0 auto 1.25rem;
+      background: linear-gradient(135deg, rgba(0,255,136,.15), rgba(0,212,255,.15));
+      border: 1px solid rgba(0,255,136,.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; position: relative; z-index: 1;
+      transition: box-shadow .3s;
     }
-    .process-step:last-child { border-right: none; }
-    .step-circle {
-      width: 40px; height: 40px; margin: 0 0 1.25rem;
-      background: #000; border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; box-shadow: none;
-    }
-    .step-title { font-size: .9rem; font-weight: 700; color: #000; margin-bottom: .4rem; }
-    .step-desc  { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+    .proc-step:hover .proc-circle { box-shadow: 0 0 24px rgba(0,255,136,.4); }
+    .proc-title { font-size: .88rem; font-weight: 700; color: #fff; margin-bottom: .4rem; }
+    .proc-desc  { font-size: .78rem; color: var(--muted); line-height: 1.65; }
 
     /* ── ABOUT ── */
-    #about { padding: 7rem 5%; background: white; border-top: 1px solid var(--border); }
+    #about { padding: 7rem 5%; background: var(--bg); border-top: 1px solid var(--border); }
 
     .about-inner {
       display: grid; grid-template-columns: 1fr 1fr;
@@ -378,175 +455,177 @@
 
     .about-photo-wrap { position: relative; }
     .about-photo {
-      width: 100%; aspect-ratio: 4/5; border-radius: 8px;
-      background: var(--light); border: 1px solid var(--border);
+      width: 100%; aspect-ratio: 4/5; border-radius: 20px;
+      background: linear-gradient(135deg, var(--bg3), #1a1a2e);
+      border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center; font-size: 8rem;
+      position: relative; overflow: hidden;
+    }
+    .about-photo::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(0,255,136,.05), rgba(0,212,255,.05));
     }
     .about-badge {
       position: absolute; bottom: 1.5rem; right: -1.5rem;
-      background: #000; border-radius: 8px; padding: 1rem 1.5rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,.15); text-align: center;
+      background: var(--neon); border-radius: 12px; padding: 1rem 1.5rem;
+      text-align: center; box-shadow: 0 0 30px rgba(0,255,136,.4);
     }
-    .about-badge-num  { font-size: 1.8rem; font-weight: 900; color: white; line-height: 1; }
-    .about-badge-text { font-size: .7rem; color: rgba(255,255,255,.6); margin-top: .2rem; }
+    .ab-num  { font-size: 1.8rem; font-weight: 900; color: #000; line-height: 1; }
+    .ab-text { font-size: .68rem; color: rgba(0,0,0,.6); margin-top: .2rem; }
 
-    .skills { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.25rem 0 2rem; }
-    .skill-tag {
-      font-size: .76rem; font-weight: 500;
-      padding: .25rem .8rem; border-radius: 50px;
-      background: var(--light); border: 1px solid var(--border); color: var(--text);
-      transition: all .15s;
+    .skills { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 2rem; }
+    .skill {
+      font-size: .75rem; font-weight: 600; padding: .3rem .85rem; border-radius: 50px;
+      background: rgba(0,255,136,.06); border: 1px solid rgba(0,255,136,.15); color: var(--neon);
+      transition: all .2s;
     }
-    .skill-tag:hover { background: #000; color: white; border-color: #000; }
+    .skill:hover { background: rgba(0,255,136,.12); }
 
     /* ── CONTACT ── */
-    #contact { padding: 7rem 5%; background: var(--light); border-top: 1px solid var(--border); }
+    #contact { padding: 7rem 5%; background: var(--bg2); border-top: 1px solid var(--border); }
 
     .contact-inner {
       display: grid; grid-template-columns: 1fr 1.5fr;
       gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start;
     }
 
-    .contact-info h3 { font-size: 1.3rem; font-weight: 800; color: #000; margin-bottom: .75rem; letter-spacing: -.5px; }
-    .contact-info p  { font-size: .9rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+    .ci-title { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: .75rem; letter-spacing: -.5px; }
+    .ci-sub   { font-size: .88rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
 
-    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-item  { display: flex; align-items: center; gap: .85rem; }
-    .contact-item-icon {
-      width: 40px; height: 40px; flex-shrink: 0;
-      background: white; border: 1px solid var(--border); border-radius: var(--radius);
+    .c-items { display: flex; flex-direction: column; gap: 1rem; }
+    .c-item  { display: flex; align-items: center; gap: .85rem; }
+    .c-icon  {
+      width: 42px; height: 42px; flex-shrink: 0;
+      background: rgba(0,255,136,.08); border: 1px solid rgba(0,255,136,.15); border-radius: 10px;
       display: flex; align-items: center; justify-content: center; font-size: 1rem;
     }
-    .contact-item-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
-    .contact-item-value { font-size: .875rem; font-weight: 600; color: #000; }
+    .c-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .c-val   { font-size: .875rem; font-weight: 600; color: #fff; }
 
     /* FORM */
-    .contact-form-box {
-      background: white; border-radius: 8px; padding: 2.5rem;
+    .c-form-box {
+      background: var(--bg3); border-radius: 16px; padding: 2.5rem;
       border: 1px solid var(--border);
     }
 
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
-    .form-group label { font-size: .75rem; font-weight: 600; color: #000; text-transform: uppercase; letter-spacing: .5px; }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      padding: .75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius);
-      font-family: inherit; font-size: .875rem; color: #000;
-      background: white; outline: none; transition: border-color .15s;
+    .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .f-group { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+    .f-group label { font-size: .72rem; font-weight: 600; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .5px; }
+    .f-group input,
+    .f-group select,
+    .f-group textarea {
+      padding: .75rem 1rem; border: 1px solid var(--border); border-radius: 8px;
+      font-family: inherit; font-size: .875rem; color: #fff;
+      background: rgba(255,255,255,.04); outline: none; transition: border-color .2s, box-shadow .2s;
     }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: #000; }
-    .form-group textarea { resize: vertical; min-height: 110px; }
+    .f-group input:focus,
+    .f-group select:focus,
+    .f-group textarea:focus {
+      border-color: var(--neon); box-shadow: 0 0 0 3px rgba(0,255,136,.1);
+    }
+    .f-group select option { background: #111; }
+    .f-group textarea { resize: vertical; min-height: 110px; }
+    .f-submit { width: 100%; justify-content: center; padding: .95rem; font-size: .95rem; margin-top: .25rem; border-radius: 8px; }
 
-    .form-submit { width: 100%; justify-content: center; padding: .95rem; font-size: .95rem; margin-top: .25rem; border-radius: var(--radius); }
+    .f-success { display: none; text-align: center; padding: 2rem; }
+    .f-success.show { display: block; }
+    .f-success-icon  { font-size: 3rem; margin-bottom: 1rem; }
+    .f-success-title { font-size: 1.1rem; font-weight: 700; color: var(--neon); margin-bottom: .5rem; }
+    .f-success-text  { font-size: .875rem; color: var(--muted); }
 
-    /* Success message */
-    .form-success { display: none; text-align: center; padding: 2rem 1rem; }
-    .form-success.visible { display: block; }
-    .form-success-icon  { font-size: 3rem; margin-bottom: 1rem; }
-    .form-success-title { font-size: 1.1rem; font-weight: 700; color: #000; margin-bottom: .5rem; }
-    .form-success-text  { font-size: .875rem; color: var(--muted); }
-
-    /* ── FLOAT BUTTONS ── */
-    .float-btns {
+    /* ── FLOAT ── */
+    .floats {
       position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
       display: flex; flex-direction: column; gap: .75rem; align-items: flex-end;
     }
-    .float-wrap { display: flex; align-items: center; gap: .5rem; }
-    .float-label {
-      background: #000; color: white; font-size: .72rem; font-weight: 600;
-      padding: .3rem .65rem; border-radius: 4px; white-space: nowrap;
-      opacity: 0; transition: opacity .2s; pointer-events: none;
+    .fw { display: flex; align-items: center; gap: .5rem; }
+    .flabel {
+      background: var(--bg3); color: #fff; font-size: .7rem; font-weight: 600;
+      padding: .3rem .65rem; border-radius: 6px; border: 1px solid var(--border);
+      white-space: nowrap; opacity: 0; transition: opacity .2s; pointer-events: none;
     }
-    .float-wrap:hover .float-label { opacity: 1; }
-    .float-btn {
+    .fw:hover .flabel { opacity: 1; }
+    .fbtn {
       width: 48px; height: 48px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; cursor: pointer; border: none;
-      box-shadow: 0 4px 16px rgba(0,0,0,.2); transition: transform .2s; text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.4); transition: transform .2s; text-decoration: none;
     }
-    .float-btn:hover { transform: scale(1.08); }
-    .float-viber { background: #7360f2; }
-    .float-phone { background: #000; }
+    .fbtn:hover { transform: scale(1.1); }
+    .fv { background: #7360f2; }
+    .fp { background: linear-gradient(135deg, var(--neon), var(--blue)); }
 
     /* ── FOOTER ── */
     footer {
-      background: #000; color: rgba(255,255,255,.4);
+      background: #000; color: rgba(255,255,255,.3);
       padding: 2.5rem 5%; display: flex; justify-content: space-between;
       align-items: center; flex-wrap: wrap; gap: 1rem;
+      border-top: 1px solid var(--border);
     }
-    .footer-logo { font-size: 1rem; font-weight: 800; color: white; letter-spacing: -.5px; }
-    .footer-logo span { color: white; }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: rgba(255,255,255,.35); font-size: .8rem; text-decoration: none; transition: color .2s; }
-    .footer-links a:hover { color: white; }
-    footer p { font-size: .78rem; }
+    .flogo { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -.5px; }
+    .flogo span { color: var(--neon); }
+    .flinks { display: flex; gap: 1.5rem; }
+    .flinks a { color: rgba(255,255,255,.3); font-size: .78rem; text-decoration: none; transition: color .2s; }
+    .flinks a:hover { color: var(--neon); }
+    footer p { font-size: .75rem; }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .services-list, .pricing-grid, .process-steps { grid-template-columns: repeat(2, 1fr); }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-      .process-steps::before { display: none; }
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .pricing-grid, .proc-steps { grid-template-columns: repeat(2,1fr); }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .proc-steps::before { display: none; }
     }
-
     @media (max-width: 768px) {
-      #hero { padding: 3.5rem 4% 3rem; }
+      nav { padding: .75rem 4%; }
+      .nav-links, .nav-phone { display: none; }
+      #hero { padding: 4rem 4% 3rem; min-height: auto; }
       .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
       .hero-visual { display: none; }
-      h1 { font-size: 1.8rem; letter-spacing: -.5px; }
-      .hero-sub { font-size: .9rem; }
+      h1 { font-size: 2rem; letter-spacing: -1px; }
       .hero-btns { flex-direction: column; }
       .hero-btns .btn { width: 100%; justify-content: center; }
-
-      nav { padding: .75rem 4%; }
-      .nav-links { display: none; }
-
-      #translate-bar { padding: .35rem 4%; }
-      .translate-left { display: none; }
-
-      #stats { padding: 2.5rem 4%; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-      .stat-num { font-size: 1.8rem; }
-
-      #services, #pricing, #portfolio, #process, #about, #contact { padding: 3.5rem 4%; }
-      h2 { font-size: 1.4rem; }
-
-      .services-list { grid-template-columns: 1fr; }
-      .pricing-grid  { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      #stats, #services, #pricing, #portfolio, #process, #about, #contact { padding: 4rem 4%; }
+      h2 { font-size: 1.5rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .proc-steps { grid-template-columns: repeat(2,1fr); }
       .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .about-photo   { display: none; }
-      .about-badge   { display: none; }
-      .form-row      { grid-template-columns: 1fr; }
-      footer         { flex-direction: column; text-align: center; }
-      .footer-links  { justify-content: center; flex-wrap: wrap; }
-      .float-btns    { bottom: 1.25rem; right: 1.25rem; }
-      .float-label   { display: none; }
+      .about-photo, .about-badge { display: none; }
+      .f-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; }
+      .flinks { justify-content: center; flex-wrap: wrap; }
+      .floats { bottom: 1rem; right: 1rem; }
+      .flabel { display: none; }
     }
-
     @media (max-width: 420px) {
-      h1 { font-size: 1.5rem; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .process-steps { grid-template-columns: 1fr; }
+      h1 { font-size: 1.7rem; }
+      .proc-steps { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2,1fr); }
     }
   </style>
 </head>
 <body>
 
 <!-- TRANSLATE BAR -->
-<div id="translate-bar">
-  <div class="translate-left">👋 Здравейте! Ние сме <strong>Webnova Пловдив</strong></div>
-  <div id="google_translate_element"></div>
+<div id="tbar">
+  <span>🌐 <strong>Webnova</strong> · Пловдив</span>
+  <div id="gte"></div>
 </div>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">
-    <div class="nav-logo-mark">W</div>
-    <div class="nav-logo-text">Web<span>nova</span></div>
+  <a class="logo" href="#">
+    <div class="logo-mark">W</div>
+    <div class="logo-text">Web<span>nova</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#services">Услуги</a></li>
@@ -556,66 +635,74 @@
     <li><a href="#contact">Контакт</a></li>
   </ul>
   <div class="nav-right">
-    <a class="btn btn-outline" href="tel:+359895615903">📞 0895 615 903</a>
-    <a class="btn btn-primary" href="#contact">Безплатна консултация</a>
+    <a class="nav-phone" href="tel:+359895615903">0895 615 903</a>
+    <a class="btn btn-neon" href="#contact">Безплатна консултация</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="hero-grid"></div>
   <div class="hero-inner">
     <div>
-      <div class="hero-tag">Уеб агенция · Пловдив</div>
-      <h1>Сайтове, които <span class="gradient">продават</span> за вашия бизнес</h1>
+      <div class="hero-badge"><div class="badge-dot"></div>Уеб агенция · Пловдив, България</div>
+      <h1>
+        Сайтове, които<br>
+        <span class="typing-wrap"><span class="typing-text" id="typingText"></span><span class="cursor"></span></span><br>
+        <span class="h1-line2">за вашия бизнес</span>
+      </h1>
       <p class="hero-sub">
         Изграждаме модерни уеб сайтове, SEO оптимизация и дигитално присъствие
         за малки бизнеси в Пловдив и цяла България.
       </p>
       <div class="hero-btns">
-        <a href="#contact" class="btn btn-primary">🚀 Стартирай проект</a>
-        <a href="#portfolio" class="btn btn-outline">Виж портфолиото</a>
+        <a href="#contact" class="btn btn-neon">🚀 Стартирай проект</a>
+        <a href="#portfolio" class="btn btn-ghost">Виж портфолиото →</a>
       </div>
-      <div class="hero-social-proof">
-        <div class="proof-avatars">
-          <div class="proof-avatar">И</div>
-          <div class="proof-avatar">М</div>
-          <div class="proof-avatar">Г</div>
+      <div class="hero-proof">
+        <div class="proof-avs">
+          <div class="proof-av">И</div>
+          <div class="proof-av">М</div>
+          <div class="proof-av">Г</div>
         </div>
-        <div class="proof-text">
+        <div class="proof-txt">
           <strong>Доверен от бизнеси в Пловдив</strong><br>
-          Бързо изпълнение · Достъпни цени · Гарантиран резултат
+          Бързо · Достъпно · Гарантирано
         </div>
       </div>
     </div>
     <div class="hero-visual">
-      <div style="position:relative">
+      <div class="hero-card-3d" id="card3d">
         <div class="hero-mockup">
           <div class="mockup-bar">
-            <div class="mockup-dot" style="background:#ff5f57"></div>
-            <div class="mockup-dot" style="background:#ffbd2e"></div>
-            <div class="mockup-dot" style="background:#28c840"></div>
-            <div class="mockup-url">webnova.netlify.app</div>
+            <div class="mdot" style="background:#ff5f57"></div>
+            <div class="mdot" style="background:#ffbd2e"></div>
+            <div class="mdot" style="background:#28c840"></div>
+            <div class="mock-url">webnovapl.netlify.app</div>
           </div>
-          <div class="mockup-screen">
-            <div class="mockup-hero-bar"></div>
-            <div class="mockup-line"></div>
-            <div class="mockup-line short"></div>
-            <div class="mockup-line shorter"></div>
-            <div class="mockup-cards">
-              <div class="mockup-card"><div class="mockup-card-icon"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
-              <div class="mockup-card"><div class="mockup-card-icon"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
-              <div class="mockup-card"><div class="mockup-card-icon"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
+          <div class="mock-screen">
+            <div class="mock-bar"></div>
+            <div class="mock-line"></div>
+            <div class="mock-line s"></div>
+            <div class="mock-line xs"></div>
+            <div class="mock-cards">
+              <div class="mock-card"><div class="mock-ci"></div><div class="mock-cl"></div><div class="mock-cl s"></div></div>
+              <div class="mock-card"><div class="mock-ci"></div><div class="mock-cl"></div><div class="mock-cl s"></div></div>
+              <div class="mock-card"><div class="mock-ci"></div><div class="mock-cl"></div><div class="mock-cl s"></div></div>
             </div>
           </div>
         </div>
-        <div class="hero-float-1">
-          <span class="float-icon">⚡</span>
-          <div><div>Бързо зареждане</div><div class="float-sub">Core Web Vitals 95+</div></div>
+        <div class="hf1">
+          <div class="hf-dot"></div>
+          <div class="hf-icon">⚡</div>
+          <div><div>Бързо зареждане</div><div class="hf-sub">Core Web Vitals 95+</div></div>
         </div>
-        <div class="hero-float-2">
-          <span class="float-icon">📈</span>
-          <div><div>SEO оптимизиран</div><div class="float-sub">Топ резултати в Google</div></div>
+        <div class="hf2">
+          <div class="hf-icon">📈</div>
+          <div><div>SEO оптимизиран</div><div class="hf-sub">Топ позиции в Google</div></div>
         </div>
       </div>
     </div>
@@ -625,103 +712,89 @@
 <!-- STATS -->
 <section id="stats">
   <div class="stats-inner">
-    <div><div class="stat-num"><span>10+</span></div><div class="stat-label">Завършени проекта</div></div>
-    <div><div class="stat-num"><span>100%</span></div><div class="stat-label">Доволни клиенти</div></div>
-    <div><div class="stat-num"><span>48ч</span></div><div class="stat-label">Средно изпълнение</div></div>
-    <div><div class="stat-num"><span>24/7</span></div><div class="stat-label">Поддръжка</div></div>
+    <div class="stat-wrap reveal">
+      <div class="stat-num" data-target="10" data-suffix="+">0</div>
+      <div class="stat-label">Завършени проекта</div>
+    </div>
+    <div class="stat-wrap reveal">
+      <div class="stat-num" data-target="100" data-suffix="%">0</div>
+      <div class="stat-label">Доволни клиенти</div>
+    </div>
+    <div class="stat-wrap reveal">
+      <div class="stat-num" data-target="48" data-suffix="ч">0</div>
+      <div class="stat-label">Средно изпълнение</div>
+    </div>
+    <div class="stat-wrap reveal">
+      <div class="stat-num" data-target="24" data-suffix="/7">0</div>
+      <div class="stat-label">Поддръжка</div>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
   <div class="section-header">
-    <span class="section-tag">Какво правим</span>
+    <span class="stag">Какво правим</span>
     <h2>Услуги за вашия онлайн успех</h2>
-    <p class="section-sub">Всичко необходимо за силно онлайн присъствие — на едно място.</p>
+    <p class="ssub">Всичко необходимо за силно онлайн присъствие — на едно място.</p>
   </div>
-  <div class="services-list">
-    <div class="service-card">
-      <div class="service-icon">🎨</div>
-      <div class="service-title">Уеб дизайн</div>
-      <div class="service-desc">Модерни, бързи и мобилно оптимизирани сайтове. Landing pages, фирмени сайтове и онлайн магазини.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔍</div>
-      <div class="service-title">SEO оптимизация</div>
-      <div class="service-desc">Класиране в топ резултатите на Google. Локално SEO за Пловдив и национално за цяла България.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📱</div>
-      <div class="service-title">Социални мрежи</div>
-      <div class="service-desc">Създаване и управление на Facebook и Instagram. Съдържание, дизайн и рекламни кампании.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛒</div>
-      <div class="service-title">Онлайн магазини</div>
-      <div class="service-desc">Пълно изграждане на e-commerce платформи с плащания, управление на продукти и доставки.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🛠️</div>
-      <div class="service-title">Поддръжка на сайт</div>
-      <div class="service-desc">Месечна поддръжка, обновления, сигурност и технически промени. Без притеснения за вас.</div>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📊</div>
-      <div class="service-title">Уеб одит</div>
-      <div class="service-desc">Пълен анализ на съществуващ сайт с конкретни препоръки за подобрение — като PDF доклад.</div>
-    </div>
+  <div class="services-grid">
+    <div class="svc-card reveal"><div class="svc-num">01</div><div class="svc-icon">🎨</div><div class="svc-title">Уеб дизайн</div><div class="svc-desc">Модерни, бързи и мобилно оптимизирани сайтове. Landing pages, фирмени сайтове и онлайн магазини.</div></div>
+    <div class="svc-card reveal"><div class="svc-num">02</div><div class="svc-icon">🔍</div><div class="svc-title">SEO оптимизация</div><div class="svc-desc">Класиране в топ резултатите на Google. Локално SEO за Пловдив и национално за цяла България.</div></div>
+    <div class="svc-card reveal"><div class="svc-num">03</div><div class="svc-icon">📱</div><div class="svc-title">Социални мрежи</div><div class="svc-desc">Създаване и управление на Facebook и Instagram. Съдържание, дизайн и рекламни кампании.</div></div>
+    <div class="svc-card reveal"><div class="svc-num">04</div><div class="svc-icon">🛒</div><div class="svc-title">Онлайн магазини</div><div class="svc-desc">Пълно изграждане на e-commerce платформи с плащания, управление на продукти и доставки.</div></div>
+    <div class="svc-card reveal"><div class="svc-num">05</div><div class="svc-icon">🛠️</div><div class="svc-title">Поддръжка на сайт</div><div class="svc-desc">Месечна поддръжка, обновления, сигурност и технически промени. Без притеснения за вас.</div></div>
+    <div class="svc-card reveal"><div class="svc-num">06</div><div class="svc-icon">📊</div><div class="svc-title">Уеб одит</div><div class="svc-desc">Пълен анализ на съществуващ сайт с конкретни препоръки за подобрение — като PDF доклад.</div></div>
   </div>
 </section>
 
 <!-- PRICING -->
 <section id="pricing">
   <div class="section-header">
-    <span class="section-tag">Прозрачни цени</span>
+    <span class="stag">Прозрачни цени</span>
     <h2>Изберете своя пакет</h2>
-    <p class="section-sub">Ясно ценообразуване без скрити такси. Плащате само за това, от което имате нужда.</p>
+    <p class="ssub">Ясно ценообразуване без скрити такси.</p>
   </div>
   <div class="pricing-grid">
-    <div class="pricing-card">
-      <div class="pricing-name">Базов</div>
-      <div class="pricing-price">300 <span>лв</span></div>
-      <div class="pricing-desc">Перфектен за стартиращи бизнеси и специалисти.</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
+    <div class="pricing-card reveal">
+      <div class="p-name">Базов</div>
+      <div class="p-price">300 <span>лв</span></div>
+      <div class="p-desc">Перфектен за стартиращи бизнеси.</div>
+      <div class="p-div"></div>
+      <ul class="p-feats">
         <li>Landing page (1 страница)</li>
         <li>Мобилна оптимизация</li>
         <li>Базово SEO</li>
         <li>Форма за контакт</li>
         <li>Качване онлайн</li>
-        <li class="muted">Социални мрежи</li>
-        <li class="muted">Месечна поддръжка</li>
+        <li class="off">Социални мрежи</li>
+        <li class="off">Месечна поддръжка</li>
       </ul>
-      <a href="#contact" class="btn btn-outline pricing-cta">Поръчай сега</a>
+      <a href="#contact" class="btn btn-ghost p-cta">Поръчай сега</a>
     </div>
-
-    <div class="pricing-card popular">
-      <div class="popular-badge">⭐ Най-популярен</div>
-      <div class="pricing-name">Стандарт</div>
-      <div class="pricing-price">800 <span>лв</span></div>
-      <div class="pricing-desc">За бизнеси, които искат пълно онлайн присъствие.</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
+    <div class="pricing-card popular reveal">
+      <div class="pop-badge">⭐ Най-популярен</div>
+      <div class="p-name">Стандарт</div>
+      <div class="p-price">800 <span>лв</span></div>
+      <div class="p-desc">За пълно онлайн присъствие.</div>
+      <div class="p-div"></div>
+      <ul class="p-feats">
         <li>До 5 страници</li>
         <li>Мобилна оптимизация</li>
         <li>Пълно SEO</li>
         <li>Google Maps интеграция</li>
         <li>Google Analytics</li>
         <li>1 месец поддръжка</li>
-        <li class="muted">Социални мрежи</li>
+        <li class="off">Социални мрежи</li>
       </ul>
-      <a href="#contact" class="btn btn-primary pricing-cta">Поръчай сега</a>
+      <a href="#contact" class="btn btn-neon p-cta">Поръчай сега</a>
     </div>
-
-    <div class="pricing-card">
-      <div class="pricing-name">Премиум</div>
-      <div class="pricing-price">1300 <span>лв</span></div>
-      <div class="pricing-desc">Пълен дигитален пакет за амбициозни бизнеси.</div>
-      <div class="pricing-divider"></div>
-      <ul class="pricing-features">
+    <div class="pricing-card reveal">
+      <div class="p-name">Премиум</div>
+      <div class="p-price">1300 <span>лв</span></div>
+      <div class="p-desc">Пълен дигитален пакет.</div>
+      <div class="p-div"></div>
+      <ul class="p-feats">
         <li>Пълен сайт без ограничение</li>
         <li>Онлайн резервации / магазин</li>
         <li>Пълно SEO + анализ</li>
@@ -730,7 +803,7 @@
         <li>3 месеца поддръжка</li>
         <li>Приоритетна поддръжка</li>
       </ul>
-      <a href="#contact" class="btn btn-dark pricing-cta">Поръчай сега</a>
+      <a href="#contact" class="btn btn-ghost p-cta">Поръчай сега</a>
     </div>
   </div>
 </section>
@@ -738,43 +811,25 @@
 <!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="section-header">
-    <span class="section-tag">Нашата работа</span>
+    <span class="stag">Нашата работа</span>
     <h2>Портфолио</h2>
-    <p class="section-sub">Разгледайте реални проекти, създадени от Webnova.</p>
+    <p class="ssub">Реални проекти, създадени от Webnova.</p>
   </div>
-  <div class="portfolio-grid" id="portfolioGrid">
-    <!-- Projects are rendered by JS -->
-  </div>
+  <div class="port-grid" id="portfolioGrid"></div>
 </section>
 
 <!-- PROCESS -->
 <section id="process">
   <div class="section-header">
-    <span class="section-tag">Как работим</span>
+    <span class="stag">Как работим</span>
     <h2>От идея до готов сайт</h2>
-    <p class="section-sub">Прост и прозрачен процес в 4 стъпки.</p>
+    <p class="ssub">Прост и прозрачен процес в 4 стъпки.</p>
   </div>
-  <div class="process-steps">
-    <div class="process-step">
-      <div class="step-circle">💬</div>
-      <div class="step-title">Консултация</div>
-      <div class="step-desc">Безплатен разговор за вашите нужди, цели и бюджет.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-circle">🎨</div>
-      <div class="step-title">Дизайн</div>
-      <div class="step-desc">Изграждаме модерен дизайн специално за вашия бизнес.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-circle">🚀</div>
-      <div class="step-title">Пускане</div>
-      <div class="step-desc">Качваме сайта онлайн с домейн, хостинг и SSL.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-circle">📈</div>
-      <div class="step-title">Растеж</div>
-      <div class="step-desc">SEO и поддръжка за постоянен растеж на трафика.</div>
-    </div>
+  <div class="proc-steps">
+    <div class="proc-step reveal"><div class="proc-circle">💬</div><div class="proc-title">Консултация</div><div class="proc-desc">Безплатен разговор за вашите нужди, цели и бюджет.</div></div>
+    <div class="proc-step reveal"><div class="proc-circle">🎨</div><div class="proc-title">Дизайн</div><div class="proc-desc">Изграждаме модерен дизайн специално за вашия бизнес.</div></div>
+    <div class="proc-step reveal"><div class="proc-circle">🚀</div><div class="proc-title">Пускане</div><div class="proc-desc">Качваме сайта онлайн с домейн, хостинг и SSL.</div></div>
+    <div class="proc-step reveal"><div class="proc-circle">📈</div><div class="proc-title">Растеж</div><div class="proc-desc">SEO и поддръжка за постоянен растеж на трафика.</div></div>
   </div>
 </section>
 
@@ -784,33 +839,33 @@
     <div class="about-photo-wrap">
       <div class="about-photo">👨‍💻</div>
       <div class="about-badge">
-        <div class="about-badge-num">100%</div>
-        <div class="about-badge-text">Доволни клиенти</div>
+        <div class="ab-num">100%</div>
+        <div class="ab-text">Доволни клиенти</div>
       </div>
     </div>
     <div>
-      <span class="section-tag">За нас</span>
+      <span class="stag">За нас</span>
       <h2>Иво Карабашев — основател на Webnova</h2>
-      <p style="color:var(--muted); font-size:.9rem; line-height:1.75; margin:.75rem 0 1rem;">
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.8;margin:.75rem 0 1rem">
         Webnova е създадена с мисията да помага на малките бизнеси в Пловдив и България
         да изградят силно онлайн присъствие. Вярвам, че всеки бизнес заслужава
         качествен уеб сайт на достъпна цена.
       </p>
-      <p style="color:var(--muted); font-size:.9rem; line-height:1.75; margin-bottom:1.25rem;">
+      <p style="color:var(--muted);font-size:.9rem;line-height:1.8;margin-bottom:1.25rem">
         Специализирам в изграждане на бързи, модерни и SEO оптимизирани сайтове,
         които реално носят клиенти на вашия бизнес.
       </p>
       <div class="skills">
-        <span class="skill-tag">HTML / CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">SEO</span>
-        <span class="skill-tag">Уеб дизайн</span>
-        <span class="skill-tag">Google Analytics</span>
-        <span class="skill-tag">Netlify</span>
-        <span class="skill-tag">GitHub</span>
-        <span class="skill-tag">Social Media</span>
+        <span class="skill">HTML / CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">SEO</span>
+        <span class="skill">Уеб дизайн</span>
+        <span class="skill">Google Analytics</span>
+        <span class="skill">Netlify</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Social Media</span>
       </div>
-      <a href="#contact" class="btn btn-primary">Работете с мен →</a>
+      <a href="#contact" class="btn btn-neon">Работете с мен →</a>
     </div>
   </div>
 </section>
@@ -818,67 +873,31 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-tag">Свържете се</span>
+    <span class="stag">Свържете се</span>
     <h2>Нека поговорим за вашия проект</h2>
-    <p class="section-sub">Безплатна консултация. Ще отговорим в рамките на 24 часа.</p>
+    <p class="ssub">Безплатна консултация. Отговаряме до 24 часа.</p>
   </div>
   <div class="contact-inner">
-    <div class="contact-info">
-      <h3>Готов съм да помогна</h3>
-      <p>Имате въпроси или искате оферта? Пишете ни и ще се свържем с вас бързо.</p>
-      <div class="contact-items">
-        <div class="contact-item">
-          <div class="contact-item-icon">📞</div>
-          <div>
-            <div class="contact-item-label">Телефон / Viber</div>
-            <div class="contact-item-value">0895 615 903</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">✉️</div>
-          <div>
-            <div class="contact-item-label">Имейл</div>
-            <div class="contact-item-value">ivokarabashev@gmail.com</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">📍</div>
-          <div>
-            <div class="contact-item-label">Местоположение</div>
-            <div class="contact-item-value">Пловдив, България</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">🕐</div>
-          <div>
-            <div class="contact-item-label">Отговаряме</div>
-            <div class="contact-item-value">До 24 часа</div>
-          </div>
-        </div>
+    <div>
+      <div class="ci-title">Готов съм да помогна</div>
+      <div class="ci-sub">Имате въпроси или искате оферта? Пишете ни и ще се свържем бързо.</div>
+      <div class="c-items">
+        <div class="c-item"><div class="c-icon">📞</div><div><div class="c-label">Телефон / Viber</div><div class="c-val">0895 615 903</div></div></div>
+        <div class="c-item"><div class="c-icon">✉️</div><div><div class="c-label">Имейл</div><div class="c-val">ivokarabashev@gmail.com</div></div></div>
+        <div class="c-item"><div class="c-icon">📍</div><div><div class="c-label">Местоположение</div><div class="c-val">Пловдив, България</div></div></div>
+        <div class="c-item"><div class="c-icon">🕐</div><div><div class="c-label">Отговаряме</div><div class="c-val">До 24 часа</div></div></div>
       </div>
     </div>
-
-    <!-- NETLIFY FORM -->
-    <div class="contact-form-box">
-      <form name="contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+    <div class="c-form-box">
+      <form name="contact" method="POST" action="/success.html" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
         <p style="display:none"><input name="bot-field" /></p>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Вашето име *</label>
-            <input type="text" name="name" placeholder="Иван Иванов" required />
-          </div>
-          <div class="form-group">
-            <label>Телефон *</label>
-            <input type="tel" name="phone" placeholder="0888 123 456" required />
-          </div>
+        <div class="f-row">
+          <div class="f-group"><label>Вашето име *</label><input type="text" name="name" placeholder="Иван Иванов" required /></div>
+          <div class="f-group"><label>Телефон *</label><input type="tel" name="phone" placeholder="0888 123 456" required /></div>
         </div>
-        <div class="form-group">
-          <label>Имейл</label>
-          <input type="email" name="email" placeholder="ivan@example.com" />
-        </div>
-        <div class="form-group">
+        <div class="f-group"><label>Имейл</label><input type="email" name="email" placeholder="ivan@example.com" /></div>
+        <div class="f-group">
           <label>Услуга</label>
           <select name="service">
             <option>Landing page (Базов — 300 лв)</option>
@@ -891,26 +910,17 @@
             <option>Не съм сигурен — искам консултация</option>
           </select>
         </div>
-        <div class="form-group">
-          <label>Съобщение</label>
-          <textarea name="message" placeholder="Разкажете ни за вашия бизнес и какво търсите..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary form-submit">Изпрати запитване →</button>
+        <div class="f-group"><label>Съобщение</label><textarea name="message" placeholder="Разкажете ни за вашия бизнес..."></textarea></div>
+        <button type="submit" class="btn btn-neon f-submit">Изпрати запитване →</button>
       </form>
-
-      <div class="form-success" id="formSuccess">
-        <div class="form-success-icon">🎉</div>
-        <div class="form-success-title">Запитването е изпратено!</div>
-        <div class="form-success-text">Ще се свържем с вас в рамките на 24 часа.<br>Очаквайте обаждане от 0895 615 903.</div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Web<span>nova</span> · Пловдив</div>
-  <div class="footer-links">
+  <div class="flogo">Web<span>nova</span> · Пловдив</div>
+  <div class="flinks">
     <a href="#services">Услуги</a>
     <a href="#pricing">Цени</a>
     <a href="#portfolio">Портфолио</a>
@@ -920,108 +930,141 @@
   <p>© 2026 Webnova. Всички права запазени.</p>
 </footer>
 
-<!-- FLOATING BUTTONS -->
-<div class="float-btns">
-  <div class="float-wrap">
-    <span class="float-label">Viber</span>
-    <a class="float-btn float-viber" href="viber://chat?number=+359895615903">💬</a>
-  </div>
-  <div class="float-wrap">
-    <span class="float-label">Обади се</span>
-    <a class="float-btn float-phone" href="tel:+359895615903">📞</a>
-  </div>
+<!-- FLOATING BTNS -->
+<div class="floats">
+  <div class="fw"><span class="flabel">Viber</span><a class="fbtn fv" href="viber://chat?number=+359895615903">💬</a></div>
+  <div class="fw"><span class="flabel">Обади се</span><a class="fbtn fp" href="tel:+359895615903">📞</a></div>
 </div>
 
 <script>
-  // ══════════════════════════════════════════
-  // ПОРТФОЛИО — добавяй нови проекти тук!
-  // ══════════════════════════════════════════
-  const projects = [
-    {
-      emoji: '📊',
-      bg: 'linear-gradient(135deg, #f0f6fc, #dbeaf6)',
-      tags: ['Landing Page', 'SEO'],
-      title: 'Счетоводни услуги — Мария Иванова',
-      desc: 'Модерна landing page за счетоводител с онлайн форма за контакт и пълна SEO оптимизация.',
-      liveUrl: 'https://schetovodstvo-maria.netlify.app',
-      codeUrl: 'https://github.com/frivolous-b/project-accounting'
-    },
-    {
-      emoji: '🦷',
-      bg: 'linear-gradient(135deg, #f0f9ff, #cceeff)',
-      tags: ['Landing Page', 'Онлайн резервации', 'SEO'],
-      title: 'Дентална клиника — Д-р Тилев',
-      desc: 'Сайт за зъболекар с интерактивен календар за онлайн записване на часове и Google Translate.',
-      liveUrl: 'https://dentist-newproject.netlify.app',
-      codeUrl: 'https://github.com/frivolous-b/dentist-project'
-    }
-    // ── За да добавиш нов проект, копирай блока по-горе ──
-    // {
-    //   emoji: '🍕',
-    //   bg: 'linear-gradient(135deg, #fff7ed, #ffedd5)',
-    //   tags: ['Ресторант', 'Менù онлайн'],
-    //   title: 'Пица Марио — Пловдив',
-    //   desc: 'Описание на проекта.',
-    //   liveUrl: 'https://pizza-mario.netlify.app',
-    //   codeUrl: 'https://github.com/frivolous-b/pizza-mario'
-    // },
-  ];
+// ══════════ TYPING EFFECT ══════════
+const words = ['продават', 'впечатляват', 'конвертират', 'растат'];
+let wi = 0, ci = 0, deleting = false;
+const el = document.getElementById('typingText');
 
-  function renderPortfolio() {
-    const grid = document.getElementById('portfolioGrid');
-    grid.innerHTML = '';
-
-    projects.forEach(p => {
-      grid.innerHTML += `
-        <div class="portfolio-card">
-          <div class="portfolio-preview" style="background:${p.bg}">
-            <span style="font-size:5rem">${p.emoji}</span>
-            <div class="portfolio-preview-overlay">
-              <a class="preview-btn" href="${p.liveUrl}" target="_blank">🔗 Виж сайта</a>
-              <a class="preview-btn" href="${p.codeUrl}" target="_blank">💻 GitHub</a>
-            </div>
-          </div>
-          <div class="portfolio-body">
-            <div class="portfolio-tags">${p.tags.map(t => `<span class="portfolio-tag">${t}</span>`).join('')}</div>
-            <div class="portfolio-title">${p.title}</div>
-            <div class="portfolio-desc">${p.desc}</div>
-          </div>
-        </div>
-      `;
-    });
-
-    // Add project card
-    grid.innerHTML += `
-      <div class="portfolio-add" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <div class="portfolio-add-icon">+</div>
-        <div class="portfolio-add-text">Вашият проект тук</div>
-        <div class="portfolio-add-sub">Свържете се с нас</div>
-      </div>
-    `;
+function type() {
+  const word = words[wi];
+  if (!deleting) {
+    el.textContent = word.slice(0, ++ci);
+    if (ci === word.length) { deleting = true; setTimeout(type, 1800); return; }
+  } else {
+    el.textContent = word.slice(0, --ci);
+    if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; setTimeout(type, 300); return; }
   }
+  setTimeout(type, deleting ? 60 : 100);
+}
+type();
 
-  renderPortfolio();
-
-  // Формата се обработва директно от Netlify (без JavaScript)
-
-  // ══════════════════════════════════════════
-  // SCROLL ANIMATIONS
-  // ══════════════════════════════════════════
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.08 });
-
-  document.querySelectorAll('.service-card, .pricing-card, .portfolio-card, .process-step, .review-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = 'opacity .5s ease, transform .5s ease';
-    observer.observe(el);
+// ══════════ 3D CARD TILT ══════════
+const card = document.getElementById('card3d');
+if (card) {
+  const wrap = card.closest('.hero-visual');
+  wrap && wrap.addEventListener('mousemove', e => {
+    const r = wrap.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2) / r.width * 15;
+    const y = (e.clientY - r.top - r.height/2) / r.height * -15;
+    card.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   });
+  wrap && wrap.addEventListener('mouseleave', () => { card.style.transform = 'rotateY(0) rotateX(0)'; });
+}
+
+// ══════════ COUNTER ANIMATION ══════════
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1500;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = Math.floor(current) + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+
+// ══════════ SCROLL REVEAL + COUNTERS ══════════
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      const counter = e.target.querySelector('.stat-num[data-target]') || (e.target.classList.contains('stat-num') ? e.target : null);
+      if (counter) animateCounter(counter);
+      revealObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+const statObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stat-num[data-target]').forEach(animateCounter);
+      statObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const statsSection = document.getElementById('stats');
+if (statsSection) statObs.observe(statsSection);
+
+// ══════════ PORTFOLIO ══════════
+const projects = [
+  {
+    emoji: '📊',
+    bg: 'linear-gradient(135deg, #0a1628, #1a3a5c)',
+    tags: ['Landing Page', 'SEO'],
+    title: 'Счетоводни услуги — Мария Иванова',
+    desc: 'Модерна landing page за счетоводител с онлайн форма и пълна SEO оптимизация.',
+    liveUrl: 'https://schetovodstvo-maria.netlify.app',
+    codeUrl: 'https://github.com/frivolous-b/project-accounting'
+  },
+  {
+    emoji: '🦷',
+    bg: 'linear-gradient(135deg, #0a1a28, #0a3050)',
+    tags: ['Landing Page', 'Онлайн резервации', 'SEO'],
+    title: 'Дентална клиника — Д-р Тилев',
+    desc: 'Сайт за зъболекар с интерактивен календар за онлайн записване и Google Translate.',
+    liveUrl: 'https://dentist-newproject.netlify.app',
+    codeUrl: 'https://github.com/frivolous-b/dentist-project'
+  }
+  // ── Добави нов проект тук ──
+  // {
+  //   emoji: '🍕',
+  //   bg: 'linear-gradient(135deg, #1a0a00, #3a1a00)',
+  //   tags: ['Ресторант'],
+  //   title: 'Пица Марио',
+  //   desc: 'Описание.',
+  //   liveUrl: 'https://...',
+  //   codeUrl: 'https://github.com/...'
+  // },
+];
+
+const grid = document.getElementById('portfolioGrid');
+projects.forEach(p => {
+  const div = document.createElement('div');
+  div.className = 'port-card reveal';
+  div.innerHTML = `
+    <div class="port-preview" style="background:${p.bg}">
+      <span style="font-size:5rem">${p.emoji}</span>
+      <div class="port-overlay">
+        <a class="port-btn" href="${p.liveUrl}" target="_blank">🔗 Виж сайта</a>
+        <a class="port-btn ghost" href="${p.codeUrl}" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
+    <div class="port-body">
+      <div class="port-tags">${p.tags.map(t=>`<span class="port-tag">${t}</span>`).join('')}</div>
+      <div class="port-title">${p.title}</div>
+      <div class="port-desc">${p.desc}</div>
+    </div>`;
+  grid.appendChild(div);
+  revealObs.observe(div);
+});
+
+const addCard = document.createElement('div');
+addCard.className = 'port-add';
+addCard.innerHTML = `<div class="port-add-icon">+</div><div class="port-add-text">Вашият проект тук</div><div class="port-add-sub">Свържете се с нас</div>`;
+addCard.onclick = () => document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+grid.appendChild(addCard);
 </script>
 </body>
 </html>
