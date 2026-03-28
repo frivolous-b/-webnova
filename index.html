@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Webnova — Уеб дизайн и SEO оптимизация Пловдив</title>
+  <meta name="description" content="Webnova — професионални уеб сайтове, SEO оптимизация и дигитален маркетинг в Пловдив. Модерен дизайн, бързо изпълнение, достъпни цени. Безплатна консултация." />
+  <meta name="keywords" content="уеб дизайн Пловдив, SEO оптимизация Пловдив, изработка на сайт, уеб агенция Пловдив, Webnova" />
+  <meta name="author" content="Иво Карабашев — Webnova" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://webnova.netlify.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webnova.netlify.app/" />
+  <meta property="og:title" content="Webnova — Уеб дизайн и SEO Пловдив" />
+  <meta property="og:description" content="Модерни уеб сайтове и SEO оптимизация за малки бизнеси в Пловдив. Безплатна консултация." />
+  <meta property="og:locale" content="bg_BG" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Webnova",
+    "description": "Уеб дизайн, SEO оптимизация и дигитален маркетинг в Пловдив.",
+    "url": "https://webnova.netlify.app/",
+    "telephone": "+359895615903",
+    "email": "ivokarabashev@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Пловдив",
+      "addressCountry": "BG"
+    },
+    "areaServed": "България"
+  }
+  </script>
+
+  <!-- Google Translate -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'bg',
+        includedLanguages: 'bg,en,de,ru,tr',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #0f172a;
+      --accent:  #6366f1;
+      --accent2: #8b5cf6;
+      --light:   #f8fafc;
+      --text:    #1e293b;
+      --muted:   #64748b;
+      --white:   #ffffff;
+      --border:  #e2e8f0;
+      --radius:  14px;
+      --shadow:  0 8px 32px rgba(15,23,42,0.10);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+    /* ── TRANSLATE BAR ── */
+    #translate-bar {
+      background: var(--primary); padding: .4rem 5%;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .translate-left { font-size: .75rem; color: rgba(255,255,255,.5); }
+    .translate-left strong { color: rgba(255,255,255,.8); }
+    #google_translate_element { display: inline-block; }
+    .goog-te-gadget { color: transparent !important; font-size: 0 !important; }
+    .goog-te-gadget select {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+      color: #fff; padding: .2rem .5rem; border-radius: 6px;
+      font-size: .75rem; cursor: pointer; outline: none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 5%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+    .nav-logo-mark {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1rem; color: white; letter-spacing: -1px;
+    }
+    .nav-logo-text { font-size: 1.1rem; font-weight: 800; color: var(--primary); letter-spacing: -.5px; }
+    .nav-logo-text span { color: var(--accent); }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: .875rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .nav-right { display: flex; align-items: center; gap: 1rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .7rem 1.4rem; border-radius: 10px;
+      font-size: .875rem; font-weight: 600; font-family: inherit;
+      text-decoration: none; cursor: pointer; border: none; transition: all .25s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,.35); }
+    .btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-dark { background: var(--primary); color: white; }
+    .btn-dark:hover { background: #1e293b; transform: translateY(-2px); }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 6rem 5% 5rem;
+      background: var(--white);
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 0%, rgba(99,102,241,.07) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 90% 80%, rgba(139,92,246,.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center; max-width: 1200px; margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(99,102,241,.08); color: var(--accent);
+      border: 1px solid rgba(99,102,241,.2);
+      padding: .3rem .9rem; border-radius: 50px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .5px;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    .hero-tag::before { content: '●'; font-size: .5rem; }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900; color: var(--primary);
+      line-height: 1.1; letter-spacing: -1px; margin-bottom: 1.25rem;
+    }
+    h1 .gradient {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 460px; margin-bottom: 2.5rem; line-height: 1.75; }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    .hero-social-proof {
+      display: flex; align-items: center; gap: 1rem;
+      padding-top: 2rem; border-top: 1px solid var(--border);
+    }
+    .proof-avatars { display: flex; }
+    .proof-avatar {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid white; background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700; color: white;
+      margin-left: -8px;
+    }
+    .proof-avatar:first-child { margin-left: 0; }
+    .proof-text { font-size: .82rem; color: var(--muted); line-height: 1.4; }
+    .proof-text strong { color: var(--text); }
+
+    /* HERO VISUAL */
+    .hero-visual { position: relative; }
+    .hero-mockup {
+      background: var(--primary); border-radius: 20px;
+      padding: 1rem; box-shadow: 0 32px 80px rgba(15,23,42,.2);
+    }
+    .mockup-bar {
+      display: flex; align-items: center; gap: .5rem;
+      padding: .5rem .75rem; margin-bottom: .75rem;
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-url {
+      flex: 1; background: rgba(255,255,255,.08); border-radius: 6px;
+      padding: .3rem .75rem; font-size: .72rem; color: rgba(255,255,255,.4);
+      margin: 0 .5rem;
+    }
+    .mockup-screen {
+      background: white; border-radius: 12px; overflow: hidden; padding: 1.25rem;
+    }
+    .mockup-hero-bar { height: 10px; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 5px; margin-bottom: 1rem; width: 60%; }
+    .mockup-line { height: 8px; background: var(--light); border-radius: 4px; margin-bottom: .6rem; }
+    .mockup-line.short { width: 70%; }
+    .mockup-line.shorter { width: 45%; }
+    .mockup-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; margin-top: 1rem; }
+    .mockup-card { background: var(--light); border-radius: 8px; padding: .75rem; }
+    .mockup-card-icon { width: 24px; height: 24px; background: linear-gradient(135deg, var(--accent), var(--accent2)); border-radius: 6px; margin-bottom: .4rem; }
+    .mockup-card-line { height: 6px; background: #e2e8f0; border-radius: 3px; margin-bottom: .3rem; }
+    .mockup-card-line.short { width: 70%; }
+
+    .hero-float-1, .hero-float-2 {
+      position: absolute; background: white; border-radius: 12px;
+      padding: .75rem 1rem; box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: .6rem;
+      font-size: .78rem; font-weight: 600; color: var(--text);
+    }
+    .hero-float-1 { top: -1rem; left: -1.5rem; }
+    .hero-float-2 { bottom: 1rem; right: -1.5rem; }
+    .float-icon { font-size: 1.2rem; }
+    .float-sub { font-size: .68rem; color: var(--muted); font-weight: 400; }
+
+    /* ── STATS ── */
+    #stats {
+      padding: 3rem 5%;
+      background: var(--primary);
+    }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: center;
+    }
+    .stat-num   { font-size: 2.2rem; font-weight: 900; color: white; line-height: 1; margin-bottom: .3rem; }
+    .stat-num span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-label { font-size: .8rem; color: rgba(255,255,255,.5); }
+
+    /* ── SERVICES ── */
+    #services { padding: 6rem 5%; background: var(--light); }
+
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag { font-size: .72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: .6rem; }
+    h2 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 800; color: var(--primary); line-height: 1.2; margin-bottom: .75rem; letter-spacing: -.5px; }
+    .section-sub { color: var(--muted); font-size: .95rem; max-width: 500px; margin: 0 auto; }
+
+    .services-list {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem; max-width: 1100px; margin: 0 auto;
+    }
+
+    .service-card {
+      background: white; border-radius: var(--radius); padding: 2rem;
+      border: 1px solid var(--border); transition: all .3s; cursor: default;
+    }
+    .service-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); border-color: rgba(99,102,241,.2); }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, rgba(99,102,241,.1), rgba(139,92,246,.1));
+      border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.1rem;
+    }
+    .service-title { font-size: .95rem; font-weight: 700; color: var(--primary); margin-bottom: .4rem; }
+    .service-desc  { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── PRICING ── */
+    #pricing { padding: 6rem 5%; background: white; }
+
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+    }
+
+    .pricing-card {
+      border: 2px solid var(--border); border-radius: 20px;
+      padding: 2rem; transition: all .3s; position: relative;
+    }
+    .pricing-card:hover { border-color: rgba(99,102,241,.3); box-shadow: var(--shadow); }
+    .pricing-card.popular {
+      border-color: var(--accent);
+      background: linear-gradient(180deg, rgba(99,102,241,.03) 0%, white 100%);
+    }
+    .popular-badge {
+      position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white; font-size: .72rem; font-weight: 700;
+      padding: .3rem 1rem; border-radius: 50px; letter-spacing: .5px; white-space: nowrap;
+    }
+
+    .pricing-name  { font-size: .8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin-bottom: .6rem; }
+    .pricing-price { font-size: 2.5rem; font-weight: 900; color: var(--primary); line-height: 1; margin-bottom: .25rem; letter-spacing: -1px; }
+    .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
+    .pricing-desc  { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.5; }
+
+    .pricing-divider { height: 1px; background: var(--border); margin: 1.25rem 0; }
+
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.75rem; }
+    .pricing-features li { display: flex; align-items: flex-start; gap: .6rem; font-size: .85rem; color: var(--text); line-height: 1.4; }
+    .pricing-features li::before {
+      content: '✓'; flex-shrink: 0;
+      width: 18px; height: 18px;
+      background: rgba(99,102,241,.1); color: var(--accent);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: .65rem; font-weight: 700; margin-top: .1rem;
+    }
+    .pricing-features li.muted { color: var(--muted); }
+    .pricing-features li.muted::before { background: var(--light); color: var(--muted); }
+
+    .pricing-cta { width: 100%; justify-content: center; padding: .85rem; }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { padding: 6rem 5%; background: var(--light); }
+
+    .portfolio-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+    }
+
+    .portfolio-card {
+      background: white; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border); transition: all .3s;
+    }
+    .portfolio-card:hover { box-shadow: 0 20px 60px rgba(15,23,42,.12); transform: translateY(-6px); }
+
+    .portfolio-preview {
+      height: 200px; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative; overflow: hidden;
+    }
+    .portfolio-preview-overlay {
+      position: absolute; inset: 0;
+      background: rgba(15,23,42,.5); backdrop-filter: blur(2px);
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      opacity: 0; transition: opacity .3s;
+    }
+    .portfolio-card:hover .portfolio-preview-overlay { opacity: 1; }
+    .preview-btn {
+      background: white; color: var(--primary); border: none;
+      padding: .5rem 1.1rem; border-radius: 8px; font-size: .8rem;
+      font-weight: 700; cursor: pointer; text-decoration: none;
+      transition: transform .2s;
+    }
+    .preview-btn:hover { transform: scale(1.05); }
+
+    .portfolio-body { padding: 1.5rem; }
+    .portfolio-tags { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .75rem; }
+    .portfolio-tag {
+      font-size: .7rem; font-weight: 600; padding: .2rem .65rem; border-radius: 50px;
+      background: rgba(99,102,241,.08); color: var(--accent);
+    }
+    .portfolio-title { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: .4rem; }
+    .portfolio-desc  { font-size: .83rem; color: var(--muted); line-height: 1.6; }
+
+    .portfolio-add {
+      border: 2px dashed var(--border); background: transparent;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .75rem; min-height: 300px; cursor: pointer; border-radius: 20px;
+      transition: all .3s; color: var(--muted);
+    }
+    .portfolio-add:hover { border-color: var(--accent); color: var(--accent); background: rgba(99,102,241,.03); }
+    .portfolio-add-icon { font-size: 2.5rem; }
+    .portfolio-add-text { font-size: .9rem; font-weight: 600; }
+    .portfolio-add-sub  { font-size: .78rem; }
+
+    /* ── PROCESS ── */
+    #process { padding: 6rem 5%; background: white; }
+
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem; max-width: 1000px; margin: 0 auto; position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 28px; left: 15%; right: 15%; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      opacity: .2;
+    }
+
+    .process-step { text-align: center; padding: 1.5rem 1rem; }
+    .step-circle {
+      width: 56px; height: 56px; margin: 0 auto 1rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; position: relative; z-index: 1;
+      box-shadow: 0 8px 24px rgba(99,102,241,.3);
+    }
+    .step-title { font-size: .9rem; font-weight: 700; color: var(--primary); margin-bottom: .4rem; }
+    .step-desc  { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── ABOUT ── */
+    #about { padding: 6rem 5%; background: var(--light); }
+
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center; max-width: 1100px; margin: 0 auto;
+    }
+
+    .about-photo-wrap { position: relative; }
+    .about-photo {
+      width: 100%; aspect-ratio: 4/5; border-radius: 24px;
+      background: linear-gradient(135deg, #e0e7ff, #ede9fe);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 8rem;
+    }
+    .about-badge {
+      position: absolute; bottom: 2rem; right: -1.5rem;
+      background: white; border-radius: 16px; padding: 1rem 1.5rem;
+      box-shadow: var(--shadow); text-align: center;
+    }
+    .about-badge-num  { font-size: 1.8rem; font-weight: 900; color: var(--primary); line-height: 1; }
+    .about-badge-text { font-size: .72rem; color: var(--muted); margin-top: .2rem; }
+
+    .skills { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 2rem; }
+    .skill-tag {
+      font-size: .78rem; font-weight: 600;
+      padding: .3rem .85rem; border-radius: 50px;
+      background: white; border: 1px solid var(--border); color: var(--text);
+      transition: all .2s;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── CONTACT ── */
+    #contact { padding: 6rem 5%; background: white; }
+
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start;
+    }
+
+    .contact-info h3 { font-size: 1.3rem; font-weight: 800; color: var(--primary); margin-bottom: .75rem; }
+    .contact-info p  { font-size: .9rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item  { display: flex; align-items: center; gap: 1rem; }
+    .contact-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(99,102,241,.08); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .contact-item-label { font-size: .72rem; color: var(--muted); }
+    .contact-item-value { font-size: .9rem; font-weight: 600; color: var(--primary); }
+
+    /* FORM */
+    .contact-form-box {
+      background: var(--light); border-radius: 20px; padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1.1rem; }
+    .form-group label { font-size: .78rem; font-weight: 600; color: var(--text); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: .75rem 1rem; border: 1.5px solid var(--border); border-radius: 10px;
+      font-family: inherit; font-size: .875rem; color: var(--text);
+      background: white; outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(99,102,241,.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit { width: 100%; justify-content: center; padding: .95rem; font-size: .95rem; margin-top: .25rem; }
+
+    /* Success message */
+    .form-success {
+      display: none; text-align: center; padding: 2rem 1rem;
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon  { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success-title { font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: .5rem; }
+    .form-success-text  { font-size: .875rem; color: var(--muted); }
+
+    /* ── FLOAT BUTTONS ── */
+    .float-btns {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      display: flex; flex-direction: column; gap: .75rem; align-items: flex-end;
+    }
+    .float-wrap { display: flex; align-items: center; gap: .5rem; }
+    .float-label {
+      background: var(--primary); color: white; font-size: .72rem; font-weight: 600;
+      padding: .3rem .65rem; border-radius: 6px; white-space: nowrap;
+      opacity: 0; transition: opacity .2s; pointer-events: none;
+    }
+    .float-wrap:hover .float-label { opacity: 1; }
+    .float-btn {
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; cursor: pointer; border: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2); transition: transform .2s; text-decoration: none;
+    }
+    .float-btn:hover { transform: scale(1.1); }
+    .float-viber { background: #7360f2; }
+    .float-phone { background: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary); color: rgba(255,255,255,.5);
+      padding: 2.5rem 5%; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo { font-size: 1.1rem; font-weight: 800; color: white; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: rgba(255,255,255,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: white; }
+    footer p { font-size: .78rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .services-list, .pricing-grid, .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      #hero { padding: 3.5rem 4% 3rem; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-visual { display: none; }
+      h1 { font-size: 1.8rem; letter-spacing: -.5px; }
+      .hero-sub { font-size: .9rem; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; justify-content: center; }
+
+      nav { padding: .75rem 4%; }
+      .nav-links { display: none; }
+
+      #translate-bar { padding: .35rem 4%; }
+      .translate-left { display: none; }
+
+      #stats { padding: 2.5rem 4%; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+      .stat-num { font-size: 1.8rem; }
+
+      #services, #pricing, #portfolio, #process, #about, #contact { padding: 3.5rem 4%; }
+      h2 { font-size: 1.4rem; }
+
+      .services-list { grid-template-columns: 1fr; }
+      .pricing-grid  { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: repeat(2, 1fr); }
+      .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo   { display: none; }
+      .about-badge   { display: none; }
+      .form-row      { grid-template-columns: 1fr; }
+      footer         { flex-direction: column; text-align: center; }
+      .footer-links  { justify-content: center; flex-wrap: wrap; }
+      .float-btns    { bottom: 1.25rem; right: 1.25rem; }
+      .float-label   { display: none; }
+    }
+
+    @media (max-width: 420px) {
+      h1 { font-size: 1.5rem; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TRANSLATE BAR -->
+<div id="translate-bar">
+  <div class="translate-left">👋 Здравейте! Ние сме <strong>Webnova Пловдив</strong></div>
+  <div id="google_translate_element"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">W</div>
+    <div class="nav-logo-text">Web<span>nova</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Услуги</a></li>
+    <li><a href="#pricing">Цени</a></li>
+    <li><a href="#portfolio">Портфолио</a></li>
+    <li><a href="#about">За нас</a></li>
+    <li><a href="#contact">Контакт</a></li>
+  </ul>
+  <div class="nav-right">
+    <a class="btn btn-outline" href="tel:+359895615903">📞 0895 615 903</a>
+    <a class="btn btn-primary" href="#contact">Безплатна консултация</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Уеб агенция · Пловдив</div>
+      <h1>Сайтове, които <span class="gradient">продават</span> за вашия бизнес</h1>
+      <p class="hero-sub">
+        Изграждаме модерни уеб сайтове, SEO оптимизация и дигитално присъствие
+        за малки бизнеси в Пловдив и цяла България.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">🚀 Стартирай проект</a>
+        <a href="#portfolio" class="btn btn-outline">Виж портфолиото</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="proof-avatars">
+          <div class="proof-avatar">И</div>
+          <div class="proof-avatar">М</div>
+          <div class="proof-avatar">Г</div>
+        </div>
+        <div class="proof-text">
+          <strong>Доверен от бизнеси в Пловдив</strong><br>
+          Бързо изпълнение · Достъпни цени · Гарантиран резултат
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div style="position:relative">
+        <div class="hero-mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#ff5f57"></div>
+            <div class="mockup-dot" style="background:#ffbd2e"></div>
+            <div class="mockup-dot" style="background:#28c840"></div>
+            <div class="mockup-url">webnova.netlify.app</div>
+          </div>
+          <div class="mockup-screen">
+            <div class="mockup-hero-bar"></div>
+            <div class="mockup-line"></div>
+            <div class="mockup-line short"></div>
+            <div class="mockup-line shorter"></div>
+            <div class="mockup-cards">
+              <div class="mockup-card"><div class="mockup-card-icon"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
+              <div class="mockup-card"><div class="mockup-card-icon"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
+              <div class="mockup-card"><div class="mockup-card-icon"></div><div class="mockup-card-line"></div><div class="mockup-card-line short"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-float-1">
+          <span class="float-icon">⚡</span>
+          <div><div>Бързо зареждане</div><div class="float-sub">Core Web Vitals 95+</div></div>
+        </div>
+        <div class="hero-float-2">
+          <span class="float-icon">📈</span>
+          <div><div>SEO оптимизиран</div><div class="float-sub">Топ резултати в Google</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-inner">
+    <div><div class="stat-num"><span>10+</span></div><div class="stat-label">Завършени проекта</div></div>
+    <div><div class="stat-num"><span>100%</span></div><div class="stat-label">Доволни клиенти</div></div>
+    <div><div class="stat-num"><span>48ч</span></div><div class="stat-label">Средно изпълнение</div></div>
+    <div><div class="stat-num"><span>24/7</span></div><div class="stat-label">Поддръжка</div></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <span class="section-tag">Какво правим</span>
+    <h2>Услуги за вашия онлайн успех</h2>
+    <p class="section-sub">Всичко необходимо за силно онлайн присъствие — на едно място.</p>
+  </div>
+  <div class="services-list">
+    <div class="service-card">
+      <div class="service-icon">🎨</div>
+      <div class="service-title">Уеб дизайн</div>
+      <div class="service-desc">Модерни, бързи и мобилно оптимизирани сайтове. Landing pages, фирмени сайтове и онлайн магазини.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <div class="service-title">SEO оптимизация</div>
+      <div class="service-desc">Класиране в топ резултатите на Google. Локално SEO за Пловдив и национално за цяла България.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📱</div>
+      <div class="service-title">Социални мрежи</div>
+      <div class="service-desc">Създаване и управление на Facebook и Instagram. Съдържание, дизайн и рекламни кампании.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛒</div>
+      <div class="service-title">Онлайн магазини</div>
+      <div class="service-desc">Пълно изграждане на e-commerce платформи с плащания, управление на продукти и доставки.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛠️</div>
+      <div class="service-title">Поддръжка на сайт</div>
+      <div class="service-desc">Месечна поддръжка, обновления, сигурност и технически промени. Без притеснения за вас.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <div class="service-title">Уеб одит</div>
+      <div class="service-desc">Пълен анализ на съществуващ сайт с конкретни препоръки за подобрение — като PDF доклад.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-header">
+    <span class="section-tag">Прозрачни цени</span>
+    <h2>Изберете своя пакет</h2>
+    <p class="section-sub">Ясно ценообразуване без скрити такси. Плащате само за това, от което имате нужда.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-name">Базов</div>
+      <div class="pricing-price">300 <span>лв</span></div>
+      <div class="pricing-desc">Перфектен за стартиращи бизнеси и специалисти.</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Landing page (1 страница)</li>
+        <li>Мобилна оптимизация</li>
+        <li>Базово SEO</li>
+        <li>Форма за контакт</li>
+        <li>Качване онлайн</li>
+        <li class="muted">Социални мрежи</li>
+        <li class="muted">Месечна поддръжка</li>
+      </ul>
+      <a href="#contact" class="btn btn-outline pricing-cta">Поръчай сега</a>
+    </div>
+
+    <div class="pricing-card popular">
+      <div class="popular-badge">⭐ Най-популярен</div>
+      <div class="pricing-name">Стандарт</div>
+      <div class="pricing-price">800 <span>лв</span></div>
+      <div class="pricing-desc">За бизнеси, които искат пълно онлайн присъствие.</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>До 5 страници</li>
+        <li>Мобилна оптимизация</li>
+        <li>Пълно SEO</li>
+        <li>Google Maps интеграция</li>
+        <li>Google Analytics</li>
+        <li>1 месец поддръжка</li>
+        <li class="muted">Социални мрежи</li>
+      </ul>
+      <a href="#contact" class="btn btn-primary pricing-cta">Поръчай сега</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-name">Премиум</div>
+      <div class="pricing-price">1300 <span>лв</span></div>
+      <div class="pricing-desc">Пълен дигитален пакет за амбициозни бизнеси.</div>
+      <div class="pricing-divider"></div>
+      <ul class="pricing-features">
+        <li>Пълен сайт без ограничение</li>
+        <li>Онлайн резервации / магазин</li>
+        <li>Пълно SEO + анализ</li>
+        <li>Социални мрежи (1 месец)</li>
+        <li>Google Ads настройка</li>
+        <li>3 месеца поддръжка</li>
+        <li>Приоритетна поддръжка</li>
+      </ul>
+      <a href="#contact" class="btn btn-dark pricing-cta">Поръчай сега</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-header">
+    <span class="section-tag">Нашата работа</span>
+    <h2>Портфолио</h2>
+    <p class="section-sub">Разгледайте реални проекти, създадени от Webnova.</p>
+  </div>
+  <div class="portfolio-grid" id="portfolioGrid">
+    <!-- Projects are rendered by JS -->
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header">
+    <span class="section-tag">Как работим</span>
+    <h2>От идея до готов сайт</h2>
+    <p class="section-sub">Прост и прозрачен процес в 4 стъпки.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-circle">💬</div>
+      <div class="step-title">Консултация</div>
+      <div class="step-desc">Безплатен разговор за вашите нужди, цели и бюджет.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">🎨</div>
+      <div class="step-title">Дизайн</div>
+      <div class="step-desc">Изграждаме модерен дизайн специално за вашия бизнес.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">🚀</div>
+      <div class="step-title">Пускане</div>
+      <div class="step-desc">Качваме сайта онлайн с домейн, хостинг и SSL.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-circle">📈</div>
+      <div class="step-title">Растеж</div>
+      <div class="step-desc">SEO и поддръжка за постоянен растеж на трафика.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-photo-wrap">
+      <div class="about-photo">👨‍💻</div>
+      <div class="about-badge">
+        <div class="about-badge-num">100%</div>
+        <div class="about-badge-text">Доволни клиенти</div>
+      </div>
+    </div>
+    <div>
+      <span class="section-tag">За нас</span>
+      <h2>Иво Карабашев — основател на Webnova</h2>
+      <p style="color:var(--muted); font-size:.9rem; line-height:1.75; margin:.75rem 0 1rem;">
+        Webnova е създадена с мисията да помага на малките бизнеси в Пловдив и България
+        да изградят силно онлайн присъствие. Вярвам, че всеки бизнес заслужава
+        качествен уеб сайт на достъпна цена.
+      </p>
+      <p style="color:var(--muted); font-size:.9rem; line-height:1.75; margin-bottom:1.25rem;">
+        Специализирам в изграждане на бързи, модерни и SEO оптимизирани сайтове,
+        които реално носят клиенти на вашия бизнес.
+      </p>
+      <div class="skills">
+        <span class="skill-tag">HTML / CSS</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">SEO</span>
+        <span class="skill-tag">Уеб дизайн</span>
+        <span class="skill-tag">Google Analytics</span>
+        <span class="skill-tag">Netlify</span>
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">Social Media</span>
+      </div>
+      <a href="#contact" class="btn btn-primary">Работете с мен →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-tag">Свържете се</span>
+    <h2>Нека поговорим за вашия проект</h2>
+    <p class="section-sub">Безплатна консултация. Ще отговорим в рамките на 24 часа.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <h3>Готов съм да помогна</h3>
+      <p>Имате въпроси или искате оферта? Пишете ни и ще се свържем с вас бързо.</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Телефон / Viber</div>
+            <div class="contact-item-value">0895 615 903</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div>
+            <div class="contact-item-label">Имейл</div>
+            <div class="contact-item-value">ivokarabashev@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Местоположение</div>
+            <div class="contact-item-value">Пловдив, България</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Отговаряме</div>
+            <div class="contact-item-value">До 24 часа</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NETLIFY FORM -->
+    <div class="contact-form-box">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none"><input name="bot-field" /></p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Вашето име *</label>
+            <input type="text" name="name" placeholder="Иван Иванов" required />
+          </div>
+          <div class="form-group">
+            <label>Телефон *</label>
+            <input type="tel" name="phone" placeholder="0888 123 456" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Имейл</label>
+          <input type="email" name="email" placeholder="ivan@example.com" />
+        </div>
+        <div class="form-group">
+          <label>Услуга</label>
+          <select name="service">
+            <option>Landing page (Базов — 300 лв)</option>
+            <option>Фирмен сайт (Стандарт — 800 лв)</option>
+            <option>Пълен пакет (Премиум — 1300 лв)</option>
+            <option>SEO оптимизация</option>
+            <option>Социални мрежи</option>
+            <option>Поддръжка на сайт</option>
+            <option>Уеб одит</option>
+            <option>Не съм сигурен — искам консултация</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Съобщение</label>
+          <textarea name="message" placeholder="Разкажете ни за вашия бизнес и какво търсите..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Изпрати запитване →</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">🎉</div>
+        <div class="form-success-title">Запитването е изпратено!</div>
+        <div class="form-success-text">Ще се свържем с вас в рамките на 24 часа.<br>Очаквайте обаждане от 0895 615 903.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Web<span>nova</span> · Пловдив</div>
+  <div class="footer-links">
+    <a href="#services">Услуги</a>
+    <a href="#pricing">Цени</a>
+    <a href="#portfolio">Портфолио</a>
+    <a href="#about">За нас</a>
+    <a href="#contact">Контакт</a>
+  </div>
+  <p>© 2026 Webnova. Всички права запазени.</p>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <div class="float-wrap">
+    <span class="float-label">Viber</span>
+    <a class="float-btn float-viber" href="viber://chat?number=+359895615903">💬</a>
+  </div>
+  <div class="float-wrap">
+    <span class="float-label">Обади се</span>
+    <a class="float-btn float-phone" href="tel:+359895615903">📞</a>
+  </div>
+</div>
+
+<script>
+  // ══════════════════════════════════════════
+  // ПОРТФОЛИО — добавяй нови проекти тук!
+  // ══════════════════════════════════════════
+  const projects = [
+    {
+      emoji: '📊',
+      bg: 'linear-gradient(135deg, #f0f6fc, #dbeaf6)',
+      tags: ['Landing Page', 'SEO'],
+      title: 'Счетоводни услуги — Мария Иванова',
+      desc: 'Модерна landing page за счетоводител с онлайн форма за контакт и пълна SEO оптимизация.',
+      liveUrl: 'https://schetovodstvo-maria.netlify.app',
+      codeUrl: 'https://github.com/frivolous-b/project-accounting'
+    },
+    {
+      emoji: '🦷',
+      bg: 'linear-gradient(135deg, #f0f9ff, #cceeff)',
+      tags: ['Landing Page', 'Онлайн резервации', 'SEO'],
+      title: 'Дентална клиника — Д-р Тилев',
+      desc: 'Сайт за зъболекар с интерактивен календар за онлайн записване на часове и Google Translate.',
+      liveUrl: 'https://dentist-newproject.netlify.app',
+      codeUrl: 'https://github.com/frivolous-b/dentist-project'
+    }
+    // ── За да добавиш нов проект, копирай блока по-горе ──
+    // {
+    //   emoji: '🍕',
+    //   bg: 'linear-gradient(135deg, #fff7ed, #ffedd5)',
+    //   tags: ['Ресторант', 'Менù онлайн'],
+    //   title: 'Пица Марио — Пловдив',
+    //   desc: 'Описание на проекта.',
+    //   liveUrl: 'https://pizza-mario.netlify.app',
+    //   codeUrl: 'https://github.com/frivolous-b/pizza-mario'
+    // },
+  ];
+
+  function renderPortfolio() {
+    const grid = document.getElementById('portfolioGrid');
+    grid.innerHTML = '';
+
+    projects.forEach(p => {
+      grid.innerHTML += `
+        <div class="portfolio-card">
+          <div class="portfolio-preview" style="background:${p.bg}">
+            <span style="font-size:5rem">${p.emoji}</span>
+            <div class="portfolio-preview-overlay">
+              <a class="preview-btn" href="${p.liveUrl}" target="_blank">🔗 Виж сайта</a>
+              <a class="preview-btn" href="${p.codeUrl}" target="_blank">💻 GitHub</a>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-tags">${p.tags.map(t => `<span class="portfolio-tag">${t}</span>`).join('')}</div>
+            <div class="portfolio-title">${p.title}</div>
+            <div class="portfolio-desc">${p.desc}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    // Add project card
+    grid.innerHTML += `
+      <div class="portfolio-add" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        <div class="portfolio-add-icon">+</div>
+        <div class="portfolio-add-text">Вашият проект тук</div>
+        <div class="portfolio-add-sub">Свържете се с нас</div>
+      </div>
+    `;
+  }
+
+  renderPortfolio();
+
+  // ══════════════════════════════════════════
+  // FORM — работи на Netlify и локално
+  // ══════════════════════════════════════════
+  const form = document.getElementById('contactForm');
+  const isNetlify = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    btn.textContent = 'Изпраща се...';
+    btn.disabled = true;
+
+    const data = new FormData(form);
+
+    if (isNetlify) {
+      // Netlify Forms — работи на живия сайт
+      try {
+        const res = await fetch('/', { method: 'POST', body: data });
+        if (res.ok || res.status === 200) {
+          form.style.display = 'none';
+          document.getElementById('formSuccess').classList.add('visible');
+        } else {
+          throw new Error();
+        }
+      } catch {
+        btn.textContent = 'Изпрати запитване →';
+        btn.disabled = false;
+        alert('Грешка. Моля пишете на 0895 615 903 (Viber/телефон).');
+      }
+    } else {
+      // Локално тестване — симулира успех
+      setTimeout(() => {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').classList.add('visible');
+      }, 600);
+    }
+  });
+
+  // ══════════════════════════════════════════
+  // SCROLL ANIMATIONS
+  // ══════════════════════════════════════════
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.service-card, .pricing-card, .portfolio-card, .process-step, .review-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
