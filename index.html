@@ -141,20 +141,115 @@
       opacity: .75; letter-spacing: .5px;
     }
 
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links { display: flex; gap: .35rem; list-style: none; }
+
+    /* Rotating gradient for the border shimmer */
+    @property --nav-angle {
+      syntax: '<angle>';
+      initial-value: 0deg;
+      inherits: false;
+    }
+    @keyframes navBorderSpin {
+      to { --nav-angle: 360deg; }
+    }
+    @keyframes navIdlePulse {
+      0%,100% { box-shadow: 0 0 0px rgba(123,47,190,0); }
+      50%      { box-shadow: 0 0 8px rgba(123,47,190,.22), 0 0 3px rgba(0,229,255,.12); }
+    }
+
     .nav-links a {
-      text-decoration: none; color: var(--muted); font-size: .85rem; font-weight: 500;
-      transition: color .2s; position: relative;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 600;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: .4px;
+      padding: .42rem 1rem;
+      border-radius: 50px;
+      position: relative;
+      /* Idle: barely-visible border + subtle pulse */
+      border: 1px solid rgba(123,47,190,.18);
+      animation: navIdlePulse 3s ease-in-out infinite;
+      /* Stagger each link's pulse phase via nth-child */
+      transition: color .3s ease, transform .3s cubic-bezier(0.175,0.885,0.32,1.275),
+                  background .3s ease, box-shadow .3s ease, border-color .3s ease;
+      overflow: hidden;
     }
+    /* Stagger idle pulse per link */
+    .nav-links li:nth-child(1) a { animation-delay: 0s; }
+    .nav-links li:nth-child(2) a { animation-delay: .6s; }
+    .nav-links li:nth-child(3) a { animation-delay: 1.2s; }
+    .nav-links li:nth-child(4) a { animation-delay: 1.8s; }
+    .nav-links li:nth-child(5) a { animation-delay: 2.4s; }
+
+    /* Shimmer sweep across the link on idle */
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(0,229,255,.12) 40%,
+        rgba(123,47,190,.18) 60%,
+        transparent 100%
+      );
+      border-radius: 50px;
+      animation: navShimmer 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .nav-links li:nth-child(1) a::before { animation-delay: 0s; }
+    .nav-links li:nth-child(2) a::before { animation-delay: .7s; }
+    .nav-links li:nth-child(3) a::before { animation-delay: 1.4s; }
+    .nav-links li:nth-child(4) a::before { animation-delay: 2.1s; }
+    .nav-links li:nth-child(5) a::before { animation-delay: 2.8s; }
+
+    @keyframes navShimmer {
+      0%   { left: -100%; opacity: 0; }
+      15%  { opacity: 1; }
+      50%  { left: 120%; opacity: 1; }
+      51%  { opacity: 0; }
+      100% { left: 120%; opacity: 0; }
+    }
+
+    /* Tiny cyan dot — bottom center */
     .nav-links a::after {
-      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 1px;
-      background: var(--neon); transform: scaleX(0); transition: transform .2s;
+      content: '';
+      position: absolute;
+      bottom: 3px; left: 50%;
+      transform: translateX(-50%) scale(0);
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--neon);
+      box-shadow: 0 0 6px var(--neon), 0 0 12px rgba(0,229,255,.5);
+      transition: transform .35s cubic-bezier(0.175,0.885,0.32,1.275);
     }
-    .nav-links a:hover { color: #fff; }
-    .nav-links a:hover::after { transform: scaleX(1); }
+
+    /* Hover state — gradient border fully revealed, lift, glow */
+    .nav-links a:hover {
+      color: #fff;
+      transform: translateY(-2px);
+      background: rgba(123,47,190,.10);
+      border-color: transparent;
+      box-shadow:
+        0 0 0 1px rgba(123,47,190,.7),
+        0 0 0 2px rgba(0,229,255,.25),
+        0 8px 24px rgba(123,47,190,.25),
+        inset 0 0 12px rgba(123,47,190,.08);
+      animation: none; /* stop idle pulse on hover */
+    }
+    .nav-links a:hover::after { transform: translateX(-50%) scale(1); }
 
     .nav-right { display: flex; align-items: center; gap: 1rem; }
-    .nav-phone { font-size: .82rem; font-weight: 600; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-phone {
+      font-size: .78rem; font-weight: 600; color: var(--muted);
+      text-decoration: none; font-family: 'Outfit', sans-serif;
+      letter-spacing: .3px;
+      transition: color .25s;
+      display: flex; align-items: center; gap: .35rem;
+    }
+    .nav-phone::before { content: '↗'; font-size: .7rem; opacity: .5; }
     .nav-phone:hover { color: var(--neon); }
 
     /* ── BUTTONS ── */
@@ -164,12 +259,56 @@
       font-size: .875rem; font-weight: 600; font-family: inherit;
       text-decoration: none; cursor: pointer; border: none; transition: all .25s;
     }
+    /* Breathing CTA animation */
+    @keyframes ctaBreathe {
+      0%,100% {
+        box-shadow:
+          0 4px 20px rgba(123,47,190,.5),
+          0 0 0 0 rgba(123,47,190,.0),
+          0 0 0 0 rgba(0,229,255,.0);
+        transform: scale(1);
+      }
+      50% {
+        box-shadow:
+          0 6px 30px rgba(123,47,190,.7),
+          0 0 0 6px rgba(123,47,190,.12),
+          0 0 0 12px rgba(0,229,255,.06);
+        transform: scale(1.025);
+      }
+    }
+    /* Shimmer sweep on the button */
+    @keyframes ctaShimmer {
+      0%   { left: -80%; }
+      100% { left: 120%; }
+    }
+
     .btn-neon {
       background: var(--grad); color: #fff;
-      box-shadow: 0 4px 20px rgba(123,47,190,0.45);
       border-radius: 50px !important;
+      position: relative; overflow: hidden;
+      animation: ctaBreathe 2.4s ease-in-out infinite;
     }
-    .btn-neon:hover { transform: translateY(-2px); box-shadow: 0 6px 30px rgba(123,47,190,0.65); }
+    /* Shiny sweep overlay */
+    .btn-neon::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 50%; height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+      );
+      animation: ctaShimmer 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn-neon:hover {
+      animation: none;
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 8px 35px rgba(123,47,190,.75), 0 0 0 2px rgba(0,229,255,.3);
+    }
+    .btn-neon:hover::after { animation: none; opacity: 0; }
     .btn-ghost {
       background: transparent; color: #fff;
       border: 1.5px solid rgba(123,47,190,0.5);
@@ -422,55 +561,145 @@
     .p-feats li.off::before { color: rgba(255,255,255,.15); content: '–'; }
     .p-cta { width: 100%; justify-content: center; padding: .85rem; border-radius: 8px; }
 
-    /* ── PORTFOLIO ── */
-    #portfolio { padding: 7rem 5%; background: var(--bg); border-top: 1px solid var(--border); }
-
-    .port-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
-
-    .port-card {
-      background: var(--bg2); border-radius: 16px; overflow: hidden;
-      border: 1px solid var(--border); transition: all .35s;
+    /* ── PORTFOLIO — Infinite Marquee ── */
+    #portfolio {
+      padding: 7rem 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      overflow: hidden;
     }
-    .port-card:hover { border-color: rgba(123,47,190,.4); transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(123,47,190,.2); }
+    #portfolio .section-header { padding: 0 5%; }
+
+    /* Marquee wrapper — fade edges like Theta */
+    .port-marquee-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 1rem 0 2rem;
+    }
+    .port-marquee-wrap::before,
+    .port-marquee-wrap::after {
+      content: '';
+      position: absolute; top: 0; bottom: 0;
+      width: 140px; z-index: 10; pointer-events: none;
+    }
+    .port-marquee-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--bg) 20%, transparent);
+    }
+    .port-marquee-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, var(--bg) 20%, transparent);
+    }
+
+    /* Two tracks — row 1 left→right, row 2 right→left (Theta style) */
+    .port-track {
+      display: flex;
+      gap: 1.25rem;
+      width: max-content;
+      padding: 0 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .port-track-1 { animation: portLeft  35s linear infinite; }
+    .port-track-2 { animation: portRight 28s linear infinite; }
+    .port-track:hover,
+    .port-track:focus-within { animation-play-state: paused; }
+
+    @keyframes portLeft  { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes portRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+    /* Card — fixed width, glassmorphism */
+    .port-card {
+      width: 310px;
+      flex-shrink: 0;
+      background: rgba(18,18,31,.7);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(123,47,190,.2);
+      transition: border-color .35s, box-shadow .35s, transform .35s;
+      cursor: pointer;
+      position: relative;
+    }
+    /* Gradient border glow on hover — Theta technique */
+    .port-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, #7B2FBE, #00E5FF, #4F46E5);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity .4s ease;
+      pointer-events: none;
+    }
+    .port-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.5), 0 0 30px rgba(123,47,190,.15); }
+    .port-card:hover::before { opacity: 1; }
 
     .port-preview {
-      height: 210px; display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; position: relative; overflow: hidden;
+      height: 195px;
+      position: relative; overflow: hidden;
     }
+    .port-preview img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top;
+      display: block;
+      transition: transform .6s ease, filter .6s ease;
+      filter: brightness(.85) saturate(.8);
+    }
+    .port-card:hover .port-preview img { transform: scale(1.06); filter: brightness(1) saturate(1); }
+
     .port-overlay {
-      position: absolute; inset: 0; background: rgba(0,0,0,.75);
-      backdrop-filter: blur(4px);
-      display: flex; align-items: center; justify-content: center; gap: 1rem;
-      opacity: 0; transition: opacity .3s;
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,20,.95) 0%, rgba(10,10,20,.4) 60%, transparent 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: .75rem; padding: 1.25rem;
+      opacity: 0; transition: opacity .35s;
     }
     .port-card:hover .port-overlay { opacity: 1; }
+
     .port-btn {
-      background: var(--neon); color: #000; border: none;
-      padding: .5rem 1.1rem; border-radius: 6px; font-size: .78rem;
-      font-weight: 700; cursor: pointer; text-decoration: none; transition: transform .15s;
+      background: var(--grad); color: #fff; border: none;
+      padding: .45rem 1rem; border-radius: 50px; font-size: .75rem;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; cursor: pointer; text-decoration: none;
+      transition: transform .15s, box-shadow .15s;
+      box-shadow: 0 4px 14px rgba(123,47,190,.4);
     }
-    .port-btn:hover { transform: scale(1.05); }
-    .port-btn.ghost { background: rgba(255,255,255,.1); color: #fff; border: 1px solid rgba(255,255,255,.2); }
+    .port-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(123,47,190,.6); }
+    .port-btn.ghost {
+      background: rgba(255,255,255,.08); color: #fff;
+      border: 1px solid rgba(255,255,255,.2);
+      box-shadow: none;
+    }
+    .port-btn.ghost:hover { border-color: var(--neon); color: var(--neon); }
 
-    .port-body { padding: 1.5rem; }
-    .port-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: .7rem; }
+    .port-body { padding: 1.1rem 1.25rem 1.25rem; }
+    .port-tags { display: flex; gap: .35rem; flex-wrap: wrap; margin-bottom: .6rem; }
     .port-tag {
-      font-size: .67rem; font-weight: 600; padding: .18rem .6rem; border-radius: 50px;
-      background: rgba(123,47,190,.10); color: var(--neon); border: 1px solid rgba(123,47,190,.25);
+      font-size: .62rem; font-weight: 600; padding: .15rem .55rem; border-radius: 50px;
+      background: rgba(123,47,190,.12); color: var(--neon); border: 1px solid rgba(123,47,190,.3);
+      font-family: 'Outfit', sans-serif; letter-spacing: .3px;
     }
-    .port-title { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
-    .port-desc  { font-size: .8rem; color: var(--muted); line-height: 1.6; }
+    .port-title { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .3rem; font-family: 'Outfit', sans-serif; }
+    .port-desc  { font-size: .77rem; color: var(--muted); line-height: 1.55; }
 
-    .port-add {
-      border: 1.5px dashed rgba(255,255,255,.1); background: transparent;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: .75rem; min-height: 300px; cursor: pointer; border-radius: 16px;
-      transition: all .3s; color: var(--muted);
+    /* CTA row below marquee */
+    .port-cta-row {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; padding: 1.5rem 5% 0; margin-top: .5rem;
     }
-    .port-add:hover { border-color: var(--purple); color: var(--neon); background: rgba(123,47,190,.04); }
-    .port-add-icon { font-size: 2.5rem; }
-    .port-add-text { font-size: .875rem; font-weight: 600; }
-    .port-add-sub  { font-size: .76rem; }
+    .port-add {
+      border: 1.5px dashed rgba(123,47,190,.3); background: transparent;
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: .6rem; padding: .75rem 1.75rem; cursor: pointer; border-radius: 50px;
+      transition: all .3s; color: var(--muted); font-size: .85rem; font-weight: 600;
+      font-family: 'Outfit', sans-serif; text-decoration: none;
+    }
+    .port-add:hover { border-color: var(--purple); color: var(--neon); background: rgba(123,47,190,.06); box-shadow: 0 0 20px rgba(123,47,190,.15); }
+    .port-add-icon { font-size: 1.1rem; }
 
     /* ── PROCESS ── */
     #process { padding: 7rem 5%; background: var(--bg2); border-top: 1px solid var(--border); }
@@ -672,6 +901,36 @@
     .gcard-sub   { font-size: .65rem; color: var(--muted); margin-top: .1rem; }
     .gcard-live  { display: flex; align-items: center; gap: .4rem; font-size: .65rem; font-weight: 600; color: var(--neon); margin-bottom: .3rem; }
     .gcard-live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); animation: pulse 2s infinite; }
+
+    /* ── SVG ROTATING TEXT RING ── */
+    .globe-ring-svg {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 490px; height: 490px;
+      pointer-events: none;
+      z-index: 5;
+    }
+    /* Outer ring rotates slowly clockwise */
+    .ring-outer-group {
+      transform-origin: 245px 245px;
+      animation: ringSpinCW 22s linear infinite;
+    }
+    /* Inner ring counter-clockwise, faster */
+    .ring-inner-group {
+      transform-origin: 245px 245px;
+      animation: ringSpinCCW 14s linear infinite;
+    }
+    @keyframes ringSpinCW  { to { transform: rotate(360deg);  } }
+    @keyframes ringSpinCCW { to { transform: rotate(-360deg); } }
+
+    /* Shimmer on the text — gradient animates position */
+    @keyframes ringTextShimmer {
+      0%,100% { opacity: .65; }
+      50%      { opacity: 1;   }
+    }
+    .ring-text-outer { animation: ringTextShimmer 3s ease-in-out infinite; }
+    .ring-text-inner { animation: ringTextShimmer 3s ease-in-out infinite reverse; }
     footer p { font-size: .75rem; }
 
     /* ── REVEAL ANIMATION ── */
@@ -681,6 +940,54 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ── HAMBURGER ── */
+    .mob-burger {
+      display: none;
+      flex-direction: column; gap: 5px; justify-content: center; align-items: center;
+      width: 40px; height: 40px; background: rgba(123,47,190,.15);
+      border: 1px solid rgba(123,47,190,.3); border-radius: 10px; cursor: pointer;
+      padding: 0; transition: background .25s, border-color .25s;
+    }
+    .mob-burger:hover { background: rgba(123,47,190,.28); border-color: rgba(0,229,255,.5); }
+    .mob-burger span {
+      display: block; width: 20px; height: 2px;
+      background: #fff; border-radius: 2px;
+      transition: transform .35s ease, opacity .2s;
+    }
+    .mob-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .mob-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .mob-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile overlay menu */
+    .mob-menu {
+      display: none;
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(10,10,20,.97);
+      backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 1.5rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .mob-menu.open { display: flex; opacity: 1; pointer-events: all; }
+    .mob-menu ul { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 1.25rem; }
+    .mob-link {
+      font-size: 1.6rem; font-weight: 800; font-family: 'Outfit', sans-serif;
+      color: rgba(255,255,255,.8); text-decoration: none; letter-spacing: -.5px;
+      transition: color .25s;
+      background: linear-gradient(to right, #7B2FBE, #00E5FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .mob-link:hover { -webkit-text-fill-color: transparent; }
+    .mob-cta { margin-top: .5rem; width: 85vw; justify-content: center; font-size: 1rem; }
+    .mob-tel {
+      color: var(--muted); font-size: .9rem; font-weight: 600;
+      text-decoration: none; font-family: 'Outfit', sans-serif;
+      transition: color .25s;
+    }
+    .mob-tel:hover { color: var(--neon); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .services-grid { grid-template-columns: repeat(2,1fr); }
@@ -688,15 +995,46 @@
       .stats-inner { grid-template-columns: repeat(2,1fr); }
       .proc-steps::before { display: none; }
     }
+
     @media (max-width: 768px) {
+      /* NAV */
       nav { padding: .75rem 4%; }
-      .nav-links, .nav-phone { display: none; }
-      #hero { padding: 4rem 4% 3rem; min-height: auto; }
-      .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-visual { display: none; }
+      .nav-links, .nav-phone, .nav-right .btn { display: none; }
+      .mob-burger { display: flex; }
+
+      /* HERO — stack vertically, globe below text */
+      #hero { padding: 5.5rem 4% 2.5rem; min-height: auto; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        text-align: center;
+      }
       h1 { font-size: 2rem; letter-spacing: -1px; }
-      .hero-btns { flex-direction: column; }
-      .hero-btns .btn { width: 100%; justify-content: center; }
+      .hero-sub { font-size: .88rem; }
+      .hero-badge { justify-content: center; }
+      .hero-proof { justify-content: center; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .hero-btns .btn { width: min(100%, 340px); justify-content: center; }
+
+      /* GLOBE — visible on mobile, scaled down */
+      .hero-visual {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        height: 300px !important;
+        overflow: visible;
+        margin-top: -1rem;
+      }
+      #globeWrap {
+        transform: scale(0.6);
+        transform-origin: center center;
+        height: 100% !important;
+        display: flex; align-items: center; justify-content: center;
+      }
+      /* Float stat cards hidden on mobile — too cramped */
+      .gcard { display: none; }
+
+      /* SECTIONS */
       #stats, #services, #pricing, #portfolio, #process, #about, #contact { padding: 4rem 4%; }
       h2 { font-size: 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
@@ -704,18 +1042,38 @@
       .proc-steps { grid-template-columns: repeat(2,1fr); }
       .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2rem; }
       .about-photo, .about-badge { display: none; }
+
+      /* PORTFOLIO MARQUEE */
+      .port-card { width: 260px; }
+      .port-preview { height: 165px; }
+      /* Always show overlay buttons on touch devices */
+      .port-overlay { opacity: 1; background: linear-gradient(to top, rgba(10,10,20,.9) 0%, transparent 100%); }
+      .port-track-1 { animation-duration: 28s; }
+      .port-track-2 { animation-duration: 22s; }
+      .port-marquee-wrap::before,
+      .port-marquee-wrap::after { width: 60px; }
+
+      /* FOOTER */
       .f-row { grid-template-columns: 1fr; }
       footer { flex-direction: column; text-align: center; }
       .flinks { justify-content: center; flex-wrap: wrap; }
-      .nav-right .btn { display: none; }
+
+      /* FLOATS */
       .floats { bottom: 1rem; left: calc(100vw - 60px); gap: .5rem; }
       .floats .fbtn { width: 42px; height: 42px; font-size: 1rem; }
       .flabel { display: none; }
     }
-    @media (max-width: 420px) {
-      h1 { font-size: 1.7rem; }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.75rem; }
+      #hero { padding: 5rem 4% 1.5rem; }
+      .hero-visual { height: 260px !important; }
+      #globeWrap { transform: scale(0.52); }
       .proc-steps { grid-template-columns: 1fr; }
       .stats-inner { grid-template-columns: repeat(2,1fr); }
+      .port-card { width: 230px; }
+      .port-preview { height: 148px; }
+      .section-header { margin-bottom: 2.5rem; }
     }
   </style>
 </head>
@@ -790,7 +1148,23 @@
     <a class="nav-phone" href="tel:+359895615903">0895 615 903</a>
     <a class="btn btn-neon" href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/ivokarabashev/meet-with-me'});return false;">Безплатна консултация</a>
   </div>
+  <button class="mob-burger" id="mobBurger" aria-label="Меню" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mob-menu" id="mobMenu" aria-hidden="true">
+  <ul>
+    <li><a href="#services" class="mob-link">Услуги</a></li>
+    <li><a href="#pricing"  class="mob-link">Цени</a></li>
+    <li><a href="#portfolio" class="mob-link">Портфолио</a></li>
+    <li><a href="#about"   class="mob-link">За нас</a></li>
+    <li><a href="#contact" class="mob-link">Контакт</a></li>
+  </ul>
+  <a class="btn btn-neon mob-cta" href="" onclick="Calendly.initPopupWidget({url:'https://calendly.com/ivokarabashev/meet-with-me'});return false;">🚀 Безплатна консултация</a>
+  <a class="mob-tel" href="tel:+359895615903">📞 0895 615 903</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -830,6 +1204,71 @@
     <div class="hero-visual" style="height:520px; position:relative;">
       <div id="globeWrap" style="height:100%;">
         <canvas id="globeCanvas" style="width:460px;height:460px;"></canvas>
+
+        <!-- SVG Rotating Text Ring — always visible, Web3 style -->
+        <svg class="globe-ring-svg" viewBox="0 0 490 490" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Outer ring gradient -->
+            <linearGradient id="rg-outer" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#7B2FBE"/>
+              <stop offset="40%"  stop-color="#00E5FF"/>
+              <stop offset="70%"  stop-color="#4F46E5"/>
+              <stop offset="100%" stop-color="#7B2FBE"/>
+            </linearGradient>
+            <!-- Inner ring gradient -->
+            <linearGradient id="rg-inner" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#00E5FF"/>
+              <stop offset="50%"  stop-color="#7B2FBE"/>
+              <stop offset="100%" stop-color="#00E5FF"/>
+            </linearGradient>
+            <!-- Glow filter -->
+            <filter id="rg-glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <!-- Outer text path — large circle r=228 -->
+            <path id="rp-outer"
+              d="M 245,245
+                 m -228,0
+                 a 228,228 0 1,1 456,0
+                 a 228,228 0 1,1 -456,0"/>
+            <!-- Inner text path — smaller circle r=205 -->
+            <path id="rp-inner"
+              d="M 245,245
+                 m -205,0
+                 a 205,205 0 1,1 410,0
+                 a 205,205 0 1,1 -410,0"/>
+          </defs>
+
+          <!-- Outer rotating ring — "WEBNOVA.BG" repeating -->
+          <g class="ring-outer-group" filter="url(#rg-glow)">
+            <text class="ring-text-outer"
+              font-family="'Outfit','Inter',sans-serif"
+              font-size="11.5"
+              font-weight="700"
+              letter-spacing="5"
+              fill="url(#rg-outer)">
+              <textPath href="#rp-outer" startOffset="0%">
+                ◆&nbsp;&nbsp;WEBNOVA.BG&nbsp;&nbsp;◆&nbsp;&nbsp;УЕБ&nbsp;АГЕНЦИЯ&nbsp;ПЛОВДИВ&nbsp;&nbsp;◆&nbsp;&nbsp;WEBNOVA.BG&nbsp;&nbsp;◆&nbsp;&nbsp;WEB&nbsp;DESIGN&nbsp;&amp;&nbsp;SEO&nbsp;&nbsp;
+              </textPath>
+            </text>
+          </g>
+
+          <!-- Inner counter-rotating ring — dots + domain -->
+          <g class="ring-inner-group" filter="url(#rg-glow)">
+            <text class="ring-text-inner"
+              font-family="'Outfit','Inter',sans-serif"
+              font-size="9"
+              font-weight="600"
+              letter-spacing="6"
+              fill="url(#rg-inner)"
+              opacity="0.6">
+              <textPath href="#rp-inner" startOffset="25%">
+                · · · WEBNOVA · DIGITAL · AGENCY · PLOVDIV · BULGARIA · · ·
+              </textPath>
+            </text>
+          </g>
+        </svg>
 
         <!-- Floating stat card — top right -->
         <div class="gcard gcard-top">
@@ -959,7 +1398,15 @@
     <h2>Портфолио</h2>
     <p class="ssub">Реални проекти, създадени от Webnova.</p>
   </div>
-  <div class="port-grid" id="portfolioGrid"></div>
+  <div class="port-marquee-wrap">
+    <div class="port-track port-track-1" id="portTrack1"></div>
+    <div class="port-track port-track-2" id="portTrack2"></div>
+  </div>
+  <div class="port-cta-row">
+    <a class="port-add" href="#contact">
+      <span class="port-add-icon">+</span> Вашият проект тук
+    </a>
+  </div>
 </section>
 
 <!-- PROCESS -->
@@ -1200,34 +1647,77 @@ const projects = [
   // },
 ];
 
-const grid = document.getElementById('portfolioGrid');
-projects.forEach(p => {
-  const div = document.createElement('div');
-  div.className = 'port-card reveal';
-  div.style.cursor = 'pointer';
-  div.onclick = () => window.open(p.liveUrl, '_blank');
-  div.innerHTML = `
+// Build a single card HTML string
+function buildCardHTML(p) {
+  return `<div class="port-card" style="cursor:pointer;" onclick="window.open('${p.liveUrl}','_blank')">
     <div class="port-preview" style="background:#111;overflow:hidden;">
       <img src="${p.img}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" />
       <div class="port-overlay">
-        <a class="port-btn" href="${p.liveUrl}" target="_blank">🔗 Виж сайта</a>
-        ${p.codeUrl ? `<a class="port-btn ghost" href="${p.codeUrl}" target="_blank">💻 GitHub</a>` : ''}
+        <a class="port-btn" href="${p.liveUrl}" target="_blank" onclick="event.stopPropagation()">🔗 Виж сайта</a>
+        ${p.codeUrl ? `<a class="port-btn ghost" href="${p.codeUrl}" target="_blank" onclick="event.stopPropagation()">💻 GitHub</a>` : ''}
       </div>
     </div>
     <div class="port-body">
       <div class="port-tags">${p.tags.map(t=>`<span class="port-tag">${t}</span>`).join('')}</div>
       <div class="port-title">${p.title}</div>
       <div class="port-desc">${p.desc}</div>
-    </div>`;
-  grid.appendChild(div);
-  revealObs.observe(div);
-});
+    </div>
+  </div>`;
+}
 
-const addCard = document.createElement('div');
-addCard.className = 'port-add';
-addCard.innerHTML = `<div class="port-add-icon">+</div><div class="port-add-text">Вашият проект тук</div><div class="port-add-sub">Свържете се с нас</div>`;
-addCard.onclick = () => document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-grid.appendChild(addCard);
+// Split projects across two tracks and duplicate for seamless loop
+const track1 = document.getElementById('portTrack1');
+const track2 = document.getElementById('portTrack2');
+
+// Track 1: all projects (odd-indexed = 0,2,4…); Track 2: all projects (even-indexed = 1,3,5…)
+// If fewer than 4 projects, put all on both tracks so both have content
+const t1projects = projects.filter((_, i) => i % 2 === 0);
+const t2projects = projects.filter((_, i) => i % 2 === 1);
+
+// Ensure each track has at least 2 items for a seamless loop
+const fill1 = t1projects.length >= 2 ? t1projects : projects;
+const fill2 = t2projects.length >= 2 ? t2projects : [...projects].reverse();
+
+// Duplicate cards (×2) so translateX(-50%) creates a seamless loop
+track1.innerHTML = [...fill1, ...fill1].map(buildCardHTML).join('');
+track2.innerHTML = [...fill2, ...fill2].map(buildCardHTML).join('');
+
+// ══════════ HAMBURGER MENU ══════════
+(function () {
+  const burger  = document.getElementById('mobBurger');
+  const menu    = document.getElementById('mobMenu');
+  const links   = menu.querySelectorAll('.mob-link, .mob-cta');
+
+  function openMenu() {
+    burger.classList.add('open');
+    menu.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    burger.classList.remove('open');
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', () => {
+    burger.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  // Close on any link click
+  links.forEach(l => l.addEventListener('click', closeMenu));
+
+  // Close on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  // Close if viewport becomes wide (e.g. rotate tablet)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+})();
 </script>
 
 <!-- ══════════════════════════════════════════
@@ -1353,69 +1843,6 @@ grid.appendChild(addCard);
     new THREE.MeshBasicMaterial({ color: 0x7B2FBE, transparent: true, opacity: 0.05, side: THREE.BackSide })
   ));
 
-  /* ── 5b. WEBNOVA.BG text band — rotates with globe ── */
-  (function buildTextBand() {
-    // Canvas texture
-    const tc = document.createElement('canvas');
-    tc.width = 768; tc.height = 96;
-    const tx = tc.getContext('2d');
-
-    // Fade-edge gradient (transparent → text → transparent)
-    const fadeGrad = tx.createLinearGradient(0, 0, 768, 0);
-    fadeGrad.addColorStop(0.00, 'rgba(0,0,0,0)');
-    fadeGrad.addColorStop(0.12, 'rgba(0,0,0,0)');
-    fadeGrad.addColorStop(0.22, 'rgba(0,0,0,1)');
-    fadeGrad.addColorStop(0.78, 'rgba(0,0,0,1)');
-    fadeGrad.addColorStop(0.88, 'rgba(0,0,0,0)');
-    fadeGrad.addColorStop(1.00, 'rgba(0,0,0,0)');
-
-    // Text gradient — purple → cyan
-    const tg = tx.createLinearGradient(80, 0, 688, 0);
-    tg.addColorStop(0,   '#7B2FBE');
-    tg.addColorStop(0.5, '#00E5FF');
-    tg.addColorStop(1,   '#7B2FBE');
-
-    // Glow pass
-    tx.shadowColor = '#00E5FF';
-    tx.shadowBlur  = 18;
-    tx.fillStyle   = tg;
-    tx.font        = '700 34px "Outfit","Inter",sans-serif';
-    tx.textAlign   = 'center';
-    tx.textBaseline = 'middle';
-    tx.fillText('◆  WEBNOVA.BG  ◆', 384, 48);
-
-    // Crisp pass (no blur)
-    tx.shadowBlur = 0;
-    tx.fillStyle  = tg;
-    tx.fillText('◆  WEBNOVA.BG  ◆', 384, 48);
-
-    // Fade the edges using compositing
-    tx.globalCompositeOperation = 'destination-in';
-    tx.fillStyle = fadeGrad;
-    tx.fillRect(0, 0, 768, 96);
-    tx.globalCompositeOperation = 'source-over';
-
-    const tex = new THREE.CanvasTexture(tc);
-
-    // Thin horizontal band positioned at the globe equator,
-    // facing outward on the +Z side → spins with globe rotation
-    const band = new THREE.Mesh(
-      new THREE.PlaneGeometry(2.6, 0.28),
-      new THREE.MeshBasicMaterial({
-        map: tex, transparent: true,
-        opacity: 0.88, side: THREE.DoubleSide,
-        depthWrite: false
-      })
-    );
-
-    // Equator level, in front of globe surface
-    band.position.set(0, -1.18, 0.02);
-
-    // Tilt to follow the globe's built-in x-rotation tilt
-    band.rotation.x = -0.30;
-
-    globe.add(band);
-  })();
 
   /* ── 6. Mouse drag ── */
   let dragging = false, px = 0, py = 0;
